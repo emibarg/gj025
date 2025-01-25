@@ -28,6 +28,8 @@ func _process(delta: float) -> void:
 	
 	if global_position.y < StopY:
 		global_position = global_position - gravity * delta * Vector2.UP
+	else:
+		global_position = global_position - gravity * delta * Vector2.UP * 0.4
 
 
 func _on_go_left_body_entered(body):
