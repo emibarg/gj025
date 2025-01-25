@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=8 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
 [ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/Player.tscn" id="2_q8phl"]
 [ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_c2nb3"]
+[ext_resource type="PackedScene" uid="uid://c3l5cvrw6g3wx" path="res://Map/extra_vein.tscn" id="5_us0u1"]
 [ext_resource type="PackedScene" uid="uid://cev1e6eh2gh3y" path="res://Map/bi_vein.tscn" id="6_d0mww"]
 [ext_resource type="PackedScene" uid="uid://dqmkwvryh0au6" path="res://UI/hud.tscn" id="7_4o7h1"]
 
@@ -34,11 +35,11 @@ gravity = 600
 ID = 2
 move = false
 
-[node name="CaminoExtra" parent="Levels" instance=ExtResource("2_1ei74")]
-position = Vector2(-30000, 0)
+[node name="ExtraVein" parent="Levels" instance=ExtResource("5_us0u1")]
+z_index = -1
+position = Vector2(-20736, 3456)
 gravity = 600
-ID = 2
-move = false
+ID = 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)

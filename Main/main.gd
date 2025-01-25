@@ -21,7 +21,7 @@ var levelCount = 1
 func _ready() -> void:
 	
 	var primerNivel : int = randi_range(0,1) # 0,1,2,
-	extraRoad = $Levels/CaminoExtra
+	extraRoad = $Levels.get_node("ExtraVein")
 	
 	if primerNivel == 0:
 		$Levels/SimpleVein.global_position = Vector2(0,0)
@@ -39,12 +39,16 @@ func _process(delta: float) -> void:
 	
 	if goLeft:
 		$Levels.global_position += Vector2.RIGHT * slideSpeed * delta
-		extraRoad.global_position -=  Vector2.RIGHT * slideSpeed * delta * 1.3
+		extraRoad.dissolve()
+		extraRoad.move = true
+		
 		
 		if $Levels.global_position.x >= startPos + 593:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
+			
 			extraRoad.global_position = Vector2(-30000, -1080)
+			extraRoad.restore()
 			extraRoad.move = false
 			
 			goLeft = false
@@ -52,14 +56,15 @@ func _process(delta: float) -> void:
 	
 	if goRight:
 		$Levels.global_position += Vector2.LEFT * slideSpeed * delta
-		extraRoad.disolver = true
+		extraRoad.dissolve()
+		extraRoad.move = true
 		
 		if $Levels.global_position.x <= startPos - 780:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
 			
 			extraRoad.global_position = Vector2(-30000, -1080)
-			extraRoad.restaurar = true
+			extraRoad.restore()
 			extraRoad.move = false
 			
 			goRight = false
@@ -81,6 +86,7 @@ func _on_bi_vein_load_left(newLeftLevel, id):
 	var rightCorner = Vector2(780,-1080)
 	
 	extraRoad.global_position = rightCorner
+	extraRoad.restaurar = true
 	extraRoad.move = true
 	
 	if newLeftLevel == 0:
@@ -110,8 +116,11 @@ func _on_bi_vein_load_right(newRightLevel, id):
 	var rightCorner = Vector2(780,-1080)
 	var leftCorner = Vector2(-593, -1080)
 	
+	extraRoad.restaurar = true
 	extraRoad.global_position = leftCorner
 	extraRoad.move = true
+	
+	
 	
 	if newRightLevel == 0:
 		$Levels/SimpleVein.global_position = rightCorner

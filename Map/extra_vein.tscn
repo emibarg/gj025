@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c3l5cvrw6g3wx"]
+
+[ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="1_47had"]
+[ext_resource type="Shader" path="res://test.gdshader" id="2_ubovl"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jf17o"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xafk7"]
+noise = SubResource("FastNoiseLite_jf17o")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3n2h"]
+shader = ExtResource("2_ubovl")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.04
+shader_parameter/burn_color = Color(1, 0.701708, 0.775119, 1)
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_xafk7")
+
+[node name="ExtraVein" instance=ExtResource("1_47had")]
+
+[node name="CaminoRecto" parent="." index="0"]
+material = SubResource("ShaderMaterial_r3n2h")
+use_parent_material = false
