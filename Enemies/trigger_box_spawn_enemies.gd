@@ -7,6 +7,9 @@ extends Area2D
 @export var maxScale : float = 1.5
 @export var minScale : float = 0.5
 @export var enemyScene : PackedScene
+@export var enemyScene2 : PackedScene
+@export var enemyScene3 : PackedScene
+var enemyNumber : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,13 +26,21 @@ func spawn():
 	var numberOfEnemies : int = randi_range(minEnemies, maxEnemies)
 	print(numberOfEnemies)
 	
+	
 	for i in range(numberOfEnemies):
+		enemyNumber = randf_range(1, 3)
 		var enemy = enemyScene.instantiate()
+		var enemy2 = enemyScene2.instantiate()
+		var enemy3 = enemyScene3.instantiate()
 		enemy.gravity = randi_range(minSpeed,maxSpeed)
 		var scale = randf_range(minScale, maxScale)
 		enemy.scale = Vector2(scale, scale)
-		add_child(enemy)
-		print(enemy.position)
+		if enemyNumber == 1:
+			add_child(enemy)
+		elif enemyNumber == 2:
+			add_child(enemy2)
+		elif enemyNumber == 3:
+			add_child(enemy3)
 		pass
 	
 	pass
