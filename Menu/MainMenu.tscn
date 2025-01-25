@@ -1,9 +1,101 @@
-[gd_scene format=3 uid="uid://c4nxbyev1yroy"]
+[gd_scene load_steps=9 format=3 uid="uid://c4nxbyev1yroy"]
 
-[node name="MainMenu" type="Control"]
+[ext_resource type="Texture2D" uid="uid://bc1s0ycnjiqvq" path="res://Menu/bubblelogo.png" id="1_ayn2d"]
+[ext_resource type="Shader" path="res://Menu/Button.gdshader" id="2_jsbfh"]
+[ext_resource type="Script" path="res://Menu/button.gd" id="3_p7krk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qk5aw"]
+shader = ExtResource("2_jsbfh")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.7
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e1l1"]
+bg_color = Color(0.599654, 0, 0.018507, 0.964706)
+border_width_bottom = 5
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Theme" id="Theme_grdjt"]
+default_font_size = 50
+Button/styles/normal = SubResource("StyleBoxFlat_5e1l1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_urvin"]
+shader = ExtResource("2_jsbfh")
+shader_parameter/Line_Smoothness = 0.045
+shader_parameter/Line_Width = 0.09
+shader_parameter/Brightness = 3.0
+shader_parameter/Rotation_deg = 30.0
+shader_parameter/Distortion = 1.8
+shader_parameter/Speed = 0.7
+shader_parameter/Position = 0.0
+shader_parameter/Position_Min = 0.25
+shader_parameter/Position_Max = 0.5
+shader_parameter/Alpha = 1.0
+
+[sub_resource type="Theme" id="Theme_1i3qa"]
+default_font_size = 50
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Bubblelogo" type="Sprite2D" parent="Control"]
+position = Vector2(987, 204)
+texture = ExtResource("1_ayn2d")
+
+[node name="GridContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 797.0
+offset_top = -138.0
+offset_right = -726.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="Control/GridContainer"]
+material = SubResource("ShaderMaterial_qk5aw")
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme = SubResource("Theme_grdjt")
+text = "         Play⠀⠀⠀⠀
+"
+script = ExtResource("3_p7krk")
+
+[node name="ColorRect" type="ColorRect" parent="Control/GridContainer/Button"]
+material = SubResource("ShaderMaterial_urvin")
+layout_mode = 0
+offset_right = 348.0
+offset_bottom = 81.0
+mouse_filter = 2
+
+[node name="Button2" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme = SubResource("Theme_1i3qa")
+text = "  How to play⠀
+"
+
+[connection signal="pressed" from="Control/GridContainer/Button" to="Control/GridContainer/Button" method="_on_pressed"]
