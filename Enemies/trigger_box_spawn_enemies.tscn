@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://qek2047ptqxp"]
+
+[ext_resource type="Script" path="res://Enemies/trigger_box_spawn_enemies.gd" id="1_ak8ls"]
+[ext_resource type="PackedScene" uid="uid://bhvlrfaax0110" path="res://Enemies/Enemy.tscn" id="2_1gj54"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13wfv"]
+
+[node name="TriggerBoxSpawnEnemies" type="Area2D"]
+script = ExtResource("1_ak8ls")
+enemyScene = ExtResource("2_1gj54")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(40, 3)
+shape = SubResource("RectangleShape2D_13wfv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

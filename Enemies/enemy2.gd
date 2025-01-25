@@ -8,8 +8,8 @@ var targetVelocity = Vector2.ZERO
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	##Spawn on top of the screen
-	position.y = -100
-	position.x = randf_range(660, 1260)
+	global_position.y = -100
+	global_position.x = randf_range(660, 1260)
 	
 
 
