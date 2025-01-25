@@ -52,7 +52,7 @@ func die():
 func handleHealth():
 	if hitPoints == 0:
 		die()
-	if $\"Bone-11\".global_position.x < 400 or  $\"Bone-11\".global_position.x > 1500:
+	if $\"Bone-11\".global_position.x < 200 or  $\"Bone-11\".global_position.x > 1800:
 		die() 
 	pass
 

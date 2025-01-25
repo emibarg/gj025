@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=7 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
-[ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/player.tscn" id="2_q8phl"]
+[ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/Player.tscn" id="2_q8phl"]
+[ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_c2nb3"]
 [ext_resource type="PackedScene" uid="uid://cev1e6eh2gh3y" path="res://Map/bi_vein.tscn" id="6_d0mww"]
 [ext_resource type="PackedScene" uid="uid://dqmkwvryh0au6" path="res://UI/hud.tscn" id="7_4o7h1"]
 
@@ -13,15 +14,23 @@ script = ExtResource("1_xug03")
 
 [node name="BiVein" parent="Levels" instance=ExtResource("6_d0mww")]
 position = Vector2(-30000, 1080)
+gravity = 600
 
 [node name="BiVein2" parent="Levels" instance=ExtResource("6_d0mww")]
 position = Vector2(-31920, 1080)
+gravity = 600
+ID = 2
 
 [node name="SimpleVein" parent="Levels" instance=ExtResource("2_1ei74")]
 position = Vector2(-31920, 0)
+gravity = 600
+move = false
 
 [node name="SimpleVein2" parent="Levels" instance=ExtResource("2_1ei74")]
 position = Vector2(-30000, 0)
+gravity = 600
+ID = 2
+move = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
@@ -29,8 +38,15 @@ offset = Vector2(960, 540)
 [node name="SoftBody2D" parent="." instance=ExtResource("2_q8phl")]
 position = Vector2(890, 905)
 
+[node name="TriggerBoxSpawnEnemies" parent="." instance=ExtResource("5_c2nb3")]
+position = Vector2(1830, 908)
+
 [node name="HUD" parent="." instance=ExtResource("7_4o7h1")]
 
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]
+[connection signal="loadRight" from="Levels/BiVein" to="." method="_on_bi_vein_load_right"]
 [connection signal="loadLeft" from="Levels/BiVein2" to="." method="_on_bi_vein_load_left"]
+[connection signal="loadRight" from="Levels/BiVein2" to="." method="_on_bi_vein_load_right"]
+[connection signal="loadNext" from="Levels/SimpleVein" to="." method="_on_simple_vein_load_next"]
+[connection signal="loadNext" from="Levels/SimpleVein2" to="." method="_on_simple_vein_load_next"]
 [connection signal="hurt" from="SoftBody2D" to="HUD" method="_on_soft_body_2d_hurt"]
