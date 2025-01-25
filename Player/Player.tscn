@@ -270,7 +270,7 @@ resource_local_to_scene = true
 size = Vector2(133, 128)
 
 [node name="SoftBody2D" type="Polygon2D" groups=["Player"]]
-position = Vector2(546, 161)
+position = Vector2(545, 161)
 texture = ExtResource("1_3g5ja")
 texture_scale = Vector2(1.7, 1.7)
 skeleton = NodePath("Skeleton2D")
@@ -326,7 +326,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-3" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(7.5, 116.5)
-rotation = -0.86685
+rotation = -0.866852
 scale = Vector2(1, 1.05801)
 rest = Transform2D(0.647231, -0.762294, 0.762294, 0.647231, 7.5, 116.5)
 auto_calculate_length_and_angle = false
@@ -353,7 +353,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-5" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(30, 30)
-rotation = -1.5708
+rotation = -1.57079
 scale = Vector2(0.999999, 0.999989)
 rest = Transform2D(-4.37114e-08, -1, 1, -4.37114e-08, 30, 30)
 auto_calculate_length_and_angle = false
@@ -409,7 +409,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-9" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(60, 7.5)
-rotation = 1.5708
+rotation = 1.57079
 scale = Vector2(0.999999, 0.999989)
 rest = Transform2D(-4.37114e-08, 1, -1, -4.37114e-08, 60, 7.5)
 auto_calculate_length_and_angle = false
@@ -479,7 +479,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-14" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(90, 7.5)
-rotation = 1.5708
+rotation = 1.57079
 scale = Vector2(0.999999, 0.999989)
 rest = Transform2D(-4.37114e-08, 1, -1, -4.37114e-08, 90, 7.5)
 auto_calculate_length_and_angle = false
@@ -563,7 +563,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-20" type="Bone2D" parent="Skeleton2D"]
 position = Vector2(116.5, 30)
-rotation = -1.5708
+rotation = -1.57079
 scale = Vector2(0.999999, 0.999989)
 rest = Transform2D(-4.37114e-08, -1, 1, -4.37114e-08, 116.5, 30)
 auto_calculate_length_and_angle = false
