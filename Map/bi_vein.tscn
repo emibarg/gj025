@@ -53,7 +53,6 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoLeft"]
 position = Vector2(-0.0127258, 0.849266)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_viv7f")
 
 [node name="GoRight" type="Area2D" parent="."]
@@ -64,7 +63,6 @@ collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoRight"]
 position = Vector2(2.87015, 0.905365)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_viv7f")
 
 [node name="WallLeft" type="StaticBody2D" parent="."]

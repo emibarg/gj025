@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4nxbyev1yroy"]
+[gd_scene load_steps=13 format=3 uid="uid://c4nxbyev1yroy"]
 
 [ext_resource type="Texture2D" uid="uid://bc1s0ycnjiqvq" path="res://Menu/bubblelogo.png" id="1_ayn2d"]
 [ext_resource type="Shader" path="res://Menu/Button.gdshader" id="2_jsbfh"]
@@ -17,16 +17,25 @@ shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tox2k"]
+bg_color = Color(0.24893, 3.89558e-07, 2.40654e-08, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5e1l1"]
 bg_color = Color(0.599654, 0, 0.018507, 0.964706)
-border_width_bottom = 5
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+border_width_bottom = 11
+border_color = Color(0.378232, 6.04643e-07, 4.81308e-08, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_grdjt"]
 default_font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_tox2k")
 Button/styles/normal = SubResource("StyleBoxFlat_5e1l1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_urvin"]
@@ -42,8 +51,45 @@ shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 1.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rijwg"]
+bg_color = Color(0.24893, 3.89558e-07, 2.40654e-08, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhm2j"]
+bg_color = Color(0.6, 0, 0, 0.964706)
+border_width_bottom = 11
+border_color = Color(0.378232, 6.04643e-07, 4.81308e-08, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="Theme" id="Theme_1i3qa"]
 default_font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_rijwg")
+Button/styles/normal = SubResource("StyleBoxFlat_mhm2j")
+
+[sub_resource type="GDScript" id="GDScript_xgeei"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Menu/howto.tscn\")
+	pass # Replace with function body.
+"
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -86,9 +132,10 @@ script = ExtResource("3_p7krk")
 [node name="ColorRect" type="ColorRect" parent="Control/GridContainer/Button"]
 material = SubResource("ShaderMaterial_urvin")
 layout_mode = 0
-offset_right = 348.0
-offset_bottom = 81.0
+offset_right = 347.0
+offset_bottom = 77.0
 mouse_filter = 2
+color = Color(0.145098, 1, 1, 1)
 
 [node name="Button2" type="Button" parent="Control/GridContainer"]
 layout_mode = 2
@@ -97,5 +144,7 @@ size_flags_vertical = 3
 theme = SubResource("Theme_1i3qa")
 text = "  How to play⠀
 "
+script = SubResource("GDScript_xgeei")
 
 [connection signal="pressed" from="Control/GridContainer/Button" to="Control/GridContainer/Button" method="_on_pressed"]
+[connection signal="pressed" from="Control/GridContainer/Button2" to="Control/GridContainer/Button2" method="_on_pressed"]

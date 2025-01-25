@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cojlku33be56v"]
+
+[ext_resource type="Script" path="res://Menu/buttonBACK.gd" id="1_an5gk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clwtk"]
+bg_color = Color(0.24893, 3.89558e-07, 2.40654e-08, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yev1c"]
+bg_color = Color(0.6, 0, 0, 0.964706)
+border_width_bottom = 11
+border_color = Color(0.378232, 6.04643e-07, 4.81308e-08, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_2exyf"]
+default_font_size = 65
+Button/styles/hover = SubResource("StyleBoxFlat_clwtk")
+Button/styles/normal = SubResource("StyleBoxFlat_yev1c")
+
+[node name="Howto" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 93.0
+offset_top = 21.0
+offset_right = 263.0
+offset_bottom = 193.0
+theme = SubResource("Theme_2exyf")
+text = "<--"
+script = ExtResource("1_an5gk")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
