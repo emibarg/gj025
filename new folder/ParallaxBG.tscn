@@ -1,0 +1,122 @@
+[gd_scene load_steps=15 format=3 uid="uid://54y3xlmt2ioy"]
+
+[ext_resource type="Script" path="res://parallax_background.gd" id="1_8wx47"]
+[ext_resource type="Texture2D" uid="uid://mq887j6edw5p" path="res://fondorojo 1920x4320.png" id="2_ah7oy"]
+[ext_resource type="Shader" path="res://Esnow.gdshader" id="3_nevfb"]
+[ext_resource type="Texture2D" uid="uid://c1suksh5df2wd" path="res://Empty.png" id="4_wxrn4"]
+[ext_resource type="Shader" path="res://BloodGoop.gdshader" id="5_t0ojn"]
+[ext_resource type="Texture2D" uid="uid://b71ao1hxp6ooe" path="res://venaspequeñasrojas3.png" id="6_2ykpd"]
+[ext_resource type="Texture2D" uid="uid://crwuyi8yhuu6j" path="res://venaspequeñasazulosc2.png" id="7_pjvmy"]
+[ext_resource type="Texture2D" uid="uid://cdk0lvfkgj0f2" path="res://venaspequeñasazules1.png" id="8_k156b"]
+[ext_resource type="Texture2D" uid="uid://ddgowpqbsp6di" path="res://contornovena.png" id="9_nlbcx"]
+[ext_resource type="Texture2D" uid="uid://dculw7rjoow6j" path="res://relleno rosa.png" id="10_62wh2"]
+[ext_resource type="Texture2D" uid="uid://camnyewer7agh" path="res://texturarelleno.png" id="11_i6rg7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_41ckn"]
+shader = ExtResource("3_nevfb")
+shader_parameter/spread = 0.5
+shader_parameter/size = 4.0
+shader_parameter/snow_color = Color(1, 0, 0, 0.8)
+shader_parameter/snow_transparency = 1.0
+shader_parameter/speed = 0.1
+shader_parameter/wind = 0.0
+shader_parameter/num_of_layers = 40
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jywqt"]
+shader = ExtResource("5_t0ojn")
+shader_parameter/mouse_position = Vector2(0.5, 0.5)
+shader_parameter/wave_color = Color(0.59, 0, 0, 1)
+shader_parameter/wave_transparency = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rahdo"]
+shader = ExtResource("5_t0ojn")
+shader_parameter/mouse_position = Vector2(0.5, 0.5)
+shader_parameter/wave_color = Color(1, 2, 4, 1)
+shader_parameter/wave_transparency = 0.7
+
+[node name="Main" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(568, 311)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_ignore_camera_zoom = true
+script = ExtResource("1_8wx47")
+
+[node name="BaseBG" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 1000)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BaseBG"]
+position = Vector2(580.5, 466)
+scale = Vector2(1.24352, 1)
+texture = ExtResource("2_ah7oy")
+
+[node name="Flakes" type="Sprite2D" parent="ParallaxBackground/BaseBG"]
+visible = false
+material = SubResource("ShaderMaterial_41ckn")
+position = Vector2(575.5, 121.5)
+scale = Vector2(3.37642, 2.91162)
+texture = ExtResource("4_wxrn4")
+
+[node name="Blood" type="Sprite2D" parent="ParallaxBackground/BaseBG"]
+visible = false
+material = SubResource("ShaderMaterial_jywqt")
+position = Vector2(571.5, 196)
+scale = Vector2(3.35085, 2.86364)
+texture = ExtResource("4_wxrn4")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.3, 1.3)
+motion_mirroring = Vector2(0, 3500)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(536, -20.5)
+scale = Vector2(0.864583, 0.825)
+texture = ExtResource("6_2ykpd")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(0, 2200)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(74.7499, 14)
+scale = Vector2(1.0125, 0.985198)
+texture = ExtResource("7_pjvmy")
+offset = Vector2(500, 0)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.3, 1.3)
+motion_mirroring = Vector2(0, 2200)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(535, -375)
+scale = Vector2(0.9875, 0.5)
+texture = ExtResource("8_k156b")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(0, 4000)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+material = SubResource("ShaderMaterial_rahdo")
+position = Vector2(82, 29.75)
+scale = Vector2(1, 0.985198)
+texture = ExtResource("9_nlbcx")
+offset = Vector2(500, 0)
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+visible = false
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(0, 3900)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(587, 11)
+texture = ExtResource("10_62wh2")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+position = Vector2(580, 5)
+texture = ExtResource("11_i6rg7")
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+scroll_offset = Vector2(330, -2)
