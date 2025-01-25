@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://bhvlrfaax0110"]
+[gd_scene load_steps=4 format=3 uid="uid://bhvlrfaax0110"]
+
+[ext_resource type="Script" path="res://Enemies/enemy.gd" id="1_mk5k8"]
+[ext_resource type="Texture2D" uid="uid://cv6k0cg2c8k2t" path="res://icon.svg" id="2_38o5y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kakma"]
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_mk5k8")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_kakma")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("2_38o5y")
