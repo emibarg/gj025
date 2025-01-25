@@ -22,7 +22,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	print(disolver)
 	if disolver:
 		
 		dissolve()
@@ -41,7 +40,6 @@ func dissolve():
 	if material and material is ShaderMaterial:
 		var temp = material.get_shader_parameter("dissolve_value")
 		material.set_shader_parameter("dissolve_value", temp - 0.0025)
-		print("state: ", disolver)
 		if temp == 0:
 			disolver = false
 	

@@ -11,5 +11,5 @@ noise = SubResource("FastNoiseLite_jf17o")
 shader = ExtResource("1_357ki")
 shader_parameter/dissolve_value = 1.0
 shader_parameter/burn_size = 0.04
-shader_parameter/burn_color = Color(1, 0.701708, 0.775119, 1)
+shader_parameter/burn_color = Color(0.597425, 0.840376, 0.93562, 1)
 shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_xafk7")
