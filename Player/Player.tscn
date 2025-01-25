@@ -1,12 +1,14 @@
-[gd_scene load_steps=29 format=3 uid="uid://dam3nc2f7w8j"]
+[gd_scene load_steps=31 format=3 uid="uid://dam3nc2f7w8j"]
 
 [ext_resource type="Texture2D" uid="uid://cevfkp1jace0l" path="res://Player/burbuja.png" id="1_3g5ja"]
+[ext_resource type="Script" path="res://Player/hit_box.gd" id="2_8t1we"]
 
 [sub_resource type="GDScript" id="GDScript_gadep"]
 script/source = "extends SoftBody2D
 
-@export var speed = 300
-var TargetY : int = 905
+@export var speed : int = 300
+@export var hitPoints : int = 3
+@export var TargetY : int = 905
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +22,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	handleHealth()
 	
 	# Define the direction to move
 	
@@ -37,10 +41,21 @@ func _process(delta):
 		direction.y += 0.5
 	
 	$\"Bone-11\".linear_velocity = speed * direction
-	
-	
-	
 	pass
+
+func die():
+	queue_free()
+	pass
+
+func handleHealth():
+	if hitPoints == 0:
+		die()
+	pass
+
+
+func _on_hit_box_body_entered(body):
+	print(\"OUCH! You collided with \", body)
+	pass # Replace with function body.
 "
 
 [sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_d35ok"]
@@ -242,6 +257,9 @@ modifications/23 = SubResource("SkeletonModification2DLookAt_rqo7i")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8en6"]
 resource_local_to_scene = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_086nj"]
+size = Vector2(131, 135)
 
 [node name="SoftBody2D" type="Polygon2D" groups=["Player"]]
 position = Vector2(544, 161)
@@ -1921,3 +1939,16 @@ rotation = -3.14159
 node_a = NodePath("..")
 node_b = NodePath("../../Bone-22")
 softness = 60.0
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(60, 61)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_8t1we")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_086nj")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
