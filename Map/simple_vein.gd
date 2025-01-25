@@ -1,6 +1,7 @@
-extends CanvasLayer
+extends Node2D
 
-signal start_game()
+@export var fallingSpeed : int = 900
+@export var stopY : int = 6930
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,13 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if global_position.y < stopY:
+		global_position = global_position - fallingSpeed * delta * Vector2.UP
+	
 	pass
-
-func changeHP(newHP : int):
-	$TemporalHP.text = "HP: " + str(newHP)
-	pass
-
-
-func _on_soft_body_2d_hurt(newHP):
-	changeHP(newHP)
-	pass # Replace with function body.

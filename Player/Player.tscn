@@ -10,6 +10,8 @@ script/source = "extends SoftBody2D
 @export var hitPoints : int = 3
 @export var TargetY : int = 905
 
+signal hurt(newHP)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	for bone in get_children():
@@ -36,9 +38,9 @@ func _process(delta):
 	
 	# Change the position
 	if $\"Bone-11\".global_position.y > TargetY+10:
-		direction.y -= 0.5
+		direction.y -= 4
 	if $\"Bone-11\".global_position.y < TargetY-10:
-		direction.y += 0.5
+		direction.y += 3
 	
 	$\"Bone-11\".linear_velocity = speed * direction
 	pass
@@ -57,7 +59,7 @@ func _on_hit_box_body_entered(body):
 	print(\"OUCH! You collided with \", body)
 	if body.is_in_group(\"Enemy\"):
 		hitPoints -= 1
-		body.queue_free()
+		hurt.emit(hitPoints)
 		pass
 	pass # Replace with function body.
 "
@@ -263,7 +265,7 @@ modifications/23 = SubResource("SkeletonModification2DLookAt_rqo7i")
 resource_local_to_scene = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_086nj"]
-size = Vector2(124, 128)
+size = Vector2(133, 128)
 
 [node name="SoftBody2D" type="Polygon2D" groups=["Player"]]
 position = Vector2(544, 161)
@@ -1951,7 +1953,7 @@ collision_mask = 2
 script = ExtResource("2_8t1we")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(7, 5)
+position = Vector2(7.5, 5)
 shape = SubResource("RectangleShape2D_086nj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
