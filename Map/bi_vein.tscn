@@ -13,6 +13,9 @@ size = Vector2(356, 477)
 
 [node name="BiVein" type="Node2D"]
 
+[node name="SoftBody2D" parent="." instance=ExtResource("1_7vkam")]
+position = Vector2(899, 900)
+
 [node name="WallLeft" type="RigidBody2D" parent="."]
 position = Vector2(640, -2920)
 collision_mask = 0
@@ -23,12 +26,13 @@ position = Vector2(-193, -4680)
 shape = SubResource("RectangleShape2D_cotoi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
-scale = Vector2(1, 400)
+position = Vector2(0, 2287)
+scale = Vector2(1, 173)
 shape = SubResource("RectangleShape2D_ga130")
 
 [node name="top_r_r_wall2" type="CollisionPolygon2D" parent="WallLeft"]
-position = Vector2(0, -4051)
-scale = Vector2(-1, 1)
+position = Vector2(-58.4135, 538.885)
+scale = Vector2(-3.00299, 1.82013)
 polygon = PackedVector2Array(16, 24, 10, 50, -13, 54, -7, -33, 186, -351, 220, -327, 102.042, -124.043)
 
 [node name="WallRight" type="RigidBody2D" parent="."]
@@ -38,7 +42,8 @@ gravity_scale = 0.0
 lock_rotation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
-scale = Vector2(1, 400)
+position = Vector2(0, 2287)
+scale = Vector2(1, 173)
 shape = SubResource("RectangleShape2D_ga130")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="WallRight"]
@@ -49,11 +54,8 @@ shape = SubResource("RectangleShape2D_cotoi")
 position = Vector2(0, -4051)
 polygon = PackedVector2Array(16, 24, 10, 50, -13, 54, -7, -33, 186, -351, 220, -327)
 
-[node name="SoftBody2D" parent="WallRight" instance=ExtResource("1_7vkam")]
-position = Vector2(-696, -4470)
-
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(947, -7430)
+position = Vector2(947, -2956)
 collision_mask = 0
 gravity_scale = 0.0
 
@@ -65,5 +67,6 @@ position = Vector2(14, -211.5)
 shape = SubResource("RectangleShape2D_ixij1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(963, -1072)
 texture = ExtResource("2_yve11")
