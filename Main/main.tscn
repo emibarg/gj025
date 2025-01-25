@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
-[ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/Player.tscn" id="2_q8phl"]
+[ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/player.tscn" id="2_q8phl"]
 [ext_resource type="PackedScene" uid="uid://bhvlrfaax0110" path="res://Enemies/Enemy.tscn" id="4_laoid"]
-[ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_c2nb3"]
+[ext_resource type="PackedScene" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_c2nb3"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xug03")

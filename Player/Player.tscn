@@ -1921,3 +1921,5 @@ rotation = -3.14159
 node_a = NodePath("..")
 node_b = NodePath("../../Bone-22")
 softness = 60.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
