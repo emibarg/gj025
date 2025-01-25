@@ -9,7 +9,7 @@ var targetVelocity = Vector2.ZERO
 func _ready() -> void:
 	##Spawn on top of the screen
 	position.y = -100
-	position.x = randf_range(0, 800)
+	position.x = randf_range(660, 1260)
 	
 
 
