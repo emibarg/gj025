@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=6 format=3 uid="uid://cev1e6eh2gh3y"]
 
 [ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/player.tscn" id="1_7vkam"]
+[ext_resource type="Texture2D" uid="uid://cikypeosmlgwu" path="res://Map/19882.jpg" id="2_yve11"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cotoi"]
 size = Vector2(38, 568)
@@ -62,3 +63,7 @@ polygon = PackedVector2Array(-26, 25, -162, 29, 1, 354, 194, 27, 20, 15, 18, -32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(14, -211.5)
 shape = SubResource("RectangleShape2D_ixij1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(963, -1072)
+texture = ExtResource("2_yve11")
