@@ -1,9 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=8 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
 [ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/player.tscn" id="2_q8phl"]
 [ext_resource type="PackedScene" uid="uid://bhvlrfaax0110" path="res://Enemies/Enemy.tscn" id="4_laoid"]
+[ext_resource type="Shader" path="res://Main/test.gdshader" id="5_exnv1"]
+[ext_resource type="Texture2D" uid="uid://cv6k0cg2c8k2t" path="res://icon.svg" id="6_003dl"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yymm"]
+shader = ExtResource("5_exnv1")
+shader_parameter/spread = 0.5
+shader_parameter/size = 4.0
+shader_parameter/snow_color = Color(1, 0, 0, 0.2)
+shader_parameter/snow_transparency = 0.9
+shader_parameter/speed = 0.01
+shader_parameter/wind = 0.0
+shader_parameter/num_of_layers = 40
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xug03")
@@ -17,3 +29,9 @@ position = Vector2(890, 905)
 
 [node name="EnemyRigidBody" parent="." instance=ExtResource("4_laoid")]
 position = Vector2(1160, -108)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+material = SubResource("ShaderMaterial_7yymm")
+scale = Vector2(1000, 1000)
+texture = ExtResource("6_003dl")

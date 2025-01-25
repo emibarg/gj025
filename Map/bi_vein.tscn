@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=3 format=3 uid="uid://cev1e6eh2gh3y"]
+
+[ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/player.tscn" id="1_7vkam"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga130"]
 
-[node name="SimpleVein" type="Node2D"]
+[node name="BiVein" type="Node2D"]
 
 [node name="WallLeft" type="RigidBody2D" parent="."]
 position = Vector2(640, -2920)
@@ -22,3 +24,10 @@ lock_rotation = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
 scale = Vector2(1, 400)
 shape = SubResource("RectangleShape2D_ga130")
+
+[node name="top_r_r_wall" type="CollisionPolygon2D" parent="WallRight"]
+position = Vector2(0, -4051)
+polygon = PackedVector2Array(16, 24, 10, 50, -13, 54, -7, -33, 186, -351, 220, -327)
+
+[node name="SoftBody2D" parent="WallRight" instance=ExtResource("1_7vkam")]
+position = Vector2(-238, -4448)
