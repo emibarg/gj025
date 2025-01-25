@@ -1,7 +1,6 @@
-[gd_scene load_steps=11 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=10 format=3 uid="uid://cev1e6eh2gh3y"]
 
 [ext_resource type="Script" path="res://Map/bi_vein.gd" id="1_uyn5g"]
-[ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_cpqmk"]
 [ext_resource type="Shader" path="res://Main/test.gdshader" id="2_mn7gi"]
 [ext_resource type="Texture2D" uid="uid://cikypeosmlgwu" path="res://Map/19882.jpg" id="2_yve11"]
 
@@ -31,15 +30,24 @@ shader_parameter/num_of_layers = 40
 
 [node name="BiVein" type="Node2D"]
 script = ExtResource("1_uyn5g")
-possibleLevels = Array[PackedScene]([ExtResource("2_cpqmk")])
 
 [node name="GoLeft" type="Area2D" parent="."]
-position = Vector2(712, -2619)
+position = Vector2(689, -2605)
 rotation = 0.933368
 scale = Vector2(14.044, 29.7891)
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoLeft"]
+position = Vector2(-0.0126801, 0.143168)
+shape = SubResource("RectangleShape2D_viv7f")
+
+[node name="GoRight" type="Area2D" parent="."]
+position = Vector2(1210, -2625)
+rotation = -1.06334
+scale = Vector2(14.044, 29.7891)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoRight"]
 position = Vector2(-0.0126801, 0.143168)
 shape = SubResource("RectangleShape2D_viv7f")
 
@@ -104,3 +112,4 @@ scale = Vector2(1.02188, 1)
 texture = ExtResource("2_yve11")
 
 [connection signal="body_entered" from="GoLeft" to="." method="_on_go_left_body_entered"]
+[connection signal="body_entered" from="GoRight" to="." method="_on_go_right_body_entered"]
