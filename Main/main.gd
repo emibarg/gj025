@@ -10,17 +10,18 @@ var extraRoad
 var startPos : float
 var levelCount = 1
 
+signal gameWon()
+
 # 0 es una vein
 # 1 es bivein
-# 2 es trivein
-# 3 es corazon
-# 4 es estomago
-# 5 es intestino
+# 2 es corazon
+# 3 es estomago
+# 4 es intestino
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	var primerNivel : int = randi_range(0,1) # 0,1,2,
+	var primerNivel : int = randi_range(0,1) # 0,1,
 	extraRoad = $Levels.get_node("ExtraVein")
 	
 	if primerNivel == 0:
@@ -120,7 +121,7 @@ func _on_bi_vein_load_right(newRightLevel, id):
 	extraRoad.global_position = leftCorner
 	extraRoad.move = true
 	
-	
+	newRightLevel = 2
 	
 	if newRightLevel == 0:
 		$Levels/SimpleVein.global_position = rightCorner
@@ -139,6 +140,15 @@ func _on_bi_vein_load_right(newRightLevel, id):
 			$Levels/BiVein.global_position = rightCorner
 			$Levels/BiVein.move = true
 			nodeToMove = $Levels/BiVein2
+	
+	if newRightLevel == 2:
+		$Levels/HeartVein.global_position = rightCorner
+		$Levels/HeartVein.move = true
+		if id == 1:
+			nodeToMove = $Levels/BiVein
+		if id == 2:
+			nodeToMove = $Levels/BiVein2
+	
 	
 	goRight = true
 	startPos = $Levels.global_position.x
@@ -178,6 +188,15 @@ func _on_simple_vein_load_next(newLevel, id):
 
 
 func _on_soft_body_2d_game_over():
+	
+	for level in $Levels.get_children():
+		level.move = false
+	
+	pass # Replace with function body.
+
+
+func _on_heart_vein_heart_completed():
+	gameWon.emit()
 	
 	for level in $Levels.get_children():
 		level.move = false

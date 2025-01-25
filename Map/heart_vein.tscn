@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=3 uid="uid://legpqfkjbtaf"]
+
+[ext_resource type="Texture2D" uid="uid://cv7ympom4crxp" path="res://Map/correcciones/relleno rosa.png" id="1_af4x0"]
+[ext_resource type="Script" path="res://Map/heart_vein.gd" id="1_hu121"]
+[ext_resource type="Texture2D" uid="uid://c1sq5ju2eeq45" path="res://Map/correcciones/texturarelleno.png" id="2_lnmfj"]
+[ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="3_yymwq"]
+[ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_fdbuo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2wi7"]
+size = Vector2(843, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8bw0"]
+size = Vector2(842, 102)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vf14t"]
+size = Vector2(768, 292.5)
+
+[node name="HeartVein" type="Node2D"]
+script = ExtResource("1_hu121")
+
+[node name="CaminoRecto" type="Node2D" parent="."]
+modulate = Color(1, 0.682119, 0.631921, 1)
+use_parent_material = true
+position = Vector2(1012, -841)
+scale = Vector2(1.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+texture = ExtResource("1_af4x0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+texture = ExtResource("2_lnmfj")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+texture = ExtResource("3_yymwq")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+position = Vector2(-35.7393, -4274.53)
+rotation = 3.13374
+texture = ExtResource("1_af4x0")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+position = Vector2(-35.7393, -4274.53)
+rotation = 3.13374
+texture = ExtResource("2_lnmfj")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+position = Vector2(-35.7393, -4274.53)
+rotation = 3.13374
+texture = ExtResource("3_yymwq")
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallLeft"]
+polygon = PackedVector2Array(640, 1065, 640, 120, 610, -966, 650, -2100, 660, -2466, 634, -3100, 665, -4434, 602, -5242, 660, -5629, 625, -7034, 120, -6927, 69, 1115)
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallRight"]
+polygon = PackedVector2Array(1324, 1083, 1316, 97, 1333, -576, 1377, -768, 1313, -1074, 1303, -2076, 1310, -2574, 1374, -3375, 1334, -4325, 1325, -6998, 1593, -6956, 1638, 1081)
+
+[node name="SpeedUpZone" type="Area2D" parent="."]
+modulate = Color(0.830667, 0.89, 0, 1)
+position = Vector2(999, -57)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpeedUpZone"]
+shape = SubResource("RectangleShape2D_g2wi7")
+
+[node name="SlowDownZone" type="Area2D" parent="."]
+modulate = Color(0.827451, 0, 1, 1)
+position = Vector2(999, -1137)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlowDownZone"]
+shape = SubResource("RectangleShape2D_a8bw0")
+
+[node name="EndZone" type="Area2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(951, -7002)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone"]
+shape = SubResource("RectangleShape2D_vf14t")
+
+[node name="EnemySpawns" type="Node2D" parent="."]
+
+[node name="TriggerBoxSpawnEnemies" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(979, -166)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies2" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(1000, -1021)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies3" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(971, -1292)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies4" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(1007, -2112)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies5" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(1007, -2411)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies6" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(1028, -3088)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies7" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(1028, -3637)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies8" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(1014, -4214)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies9" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(1000, -4756)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies10" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(986, -5419)
+maxSpeed = 1000
+minSpeed = 10
+
+[node name="TriggerBoxSpawnEnemies11" parent="EnemySpawns" instance=ExtResource("5_fdbuo")]
+position = Vector2(979, -5540)
+maxSpeed = 1000
+minSpeed = 10
+
+[connection signal="body_entered" from="SpeedUpZone" to="." method="_on_speed_up_zone_body_entered"]
+[connection signal="body_entered" from="SlowDownZone" to="." method="_on_slow_down_zone_body_entered"]
+[connection signal="body_entered" from="EndZone" to="." method="_on_end_zone_body_entered"]

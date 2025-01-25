@@ -15,11 +15,23 @@ signal loadRight(newRightLevel : int, id : int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	leftLevel = randi_range(0,1) # 0,1,2
-	rightLevel = randi_range(0,1) # 0,1,2,3,4,5
+	leftLevel = randi_range(0,1) # 0,1
+	var rightLevelRoll = randi_range(0,100) # 0,1,2,3,4, (0-30 = 0; 30-70 = 1; 70-80 = 2; 80-90 = 3; 90-100 = 4  )
 	move = false
 	goFast = false
 	unload = false
+	
+	if rightLevelRoll <= 30:
+		rightLevel = 0
+	elif rightLevelRoll <= 70:
+		rightLevel = 1
+	elif rightLevelRoll <= 80:
+		rightLevel = 2
+	elif rightLevelRoll <= 90:
+		rightLevel = 3
+	else :
+		rightLevel = 4
+	
 	pass # Replace with function body.
 
 
