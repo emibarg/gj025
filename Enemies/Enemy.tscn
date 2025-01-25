@@ -8,7 +8,6 @@ radius = 64.0078
 
 [node name="EnemyRigidBody" type="RigidBody2D" groups=["Enemy"]]
 collision_layer = 3
-mass = 5.0
 script = ExtResource("1_tu4rw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,3 +15,8 @@ shape = SubResource("CircleShape2D_kakma")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_38o5y")
+
+[node name="LivingTime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LivingTime" to="." method="_on_living_time_timeout"]

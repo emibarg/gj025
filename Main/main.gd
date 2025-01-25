@@ -21,7 +21,7 @@ func _ready() -> void:
 	
 	var primerNivel : int = randi_range(0,1) # 0,1,2,
 	
-	
+	primerNivel = 0
 	
 	if primerNivel == 0:
 		$Levels/SimpleVein.global_position = Vector2(0,0)

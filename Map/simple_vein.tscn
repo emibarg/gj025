@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7n0iro3w2plh"]
+[gd_scene load_steps=7 format=3 uid="uid://c7n0iro3w2plh"]
 
 [ext_resource type="Script" path="res://Map/simple_vein.gd" id="1_ase8y"]
 [ext_resource type="Texture2D" uid="uid://cv7ympom4crxp" path="res://Map/correcciones/relleno rosa.png" id="2_t5iiq"]
 [ext_resource type="Texture2D" uid="uid://c1sq5ju2eeq45" path="res://Map/correcciones/texturarelleno.png" id="3_hjuu0"]
 [ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="4_6jc3q"]
+[ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_mf8rn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esjkw"]
 size = Vector2(746, 65)
@@ -24,6 +25,15 @@ texture = ExtResource("3_hjuu0")
 
 [node name="Sprite2D3" type="Sprite2D" parent="CaminoRecto"]
 texture = ExtResource("4_6jc3q")
+
+[node name="Spawners" type="Node2D" parent="."]
+position = Vector2(1012, -841)
+
+[node name="TriggerBoxSpawnEnemies" parent="Spawners" instance=ExtResource("5_mf8rn")]
+position = Vector2(-45, 521)
+
+[node name="TriggerBoxSpawnEnemies2" parent="Spawners" instance=ExtResource("5_mf8rn")]
+position = Vector2(-68, -279)
 
 [node name="WallLeft" type="StaticBody2D" parent="."]
 position = Vector2(640, -2920)
