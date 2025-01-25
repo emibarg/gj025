@@ -52,6 +52,8 @@ func die():
 func handleHealth():
 	if hitPoints == 0:
 		die()
+	if $\"Bone-11\".global_position.x < 600 or  $\"Bone-11\".global_position.x > 1300:
+		die() 
 	pass
 
 
@@ -268,7 +270,7 @@ resource_local_to_scene = true
 size = Vector2(133, 128)
 
 [node name="SoftBody2D" type="Polygon2D" groups=["Player"]]
-position = Vector2(544, 161)
+position = Vector2(546, 161)
 texture = ExtResource("1_3g5ja")
 texture_scale = Vector2(1.7, 1.7)
 skeleton = NodePath("Skeleton2D")
