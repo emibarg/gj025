@@ -29,6 +29,7 @@ enabled=PackedStringArray("res://addons/softbody2d/plugin.cfg")
 [global_group]
 
 Player="The bubble controlled by a player"
+Enemy="an enemy"
 
 [input]
 
