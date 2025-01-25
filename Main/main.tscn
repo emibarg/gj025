@@ -10,6 +10,8 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_xug03")
 
+[node name="HUD" parent="." instance=ExtResource("7_4o7h1")]
+
 [node name="Levels" type="Node2D" parent="."]
 
 [node name="BiVein" parent="Levels" instance=ExtResource("6_d0mww")]
@@ -32,6 +34,12 @@ gravity = 600
 ID = 2
 move = false
 
+[node name="CaminoExtra" parent="Levels" instance=ExtResource("2_1ei74")]
+position = Vector2(-30000, 0)
+gravity = 600
+ID = 2
+move = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
 
@@ -41,12 +49,11 @@ position = Vector2(890, 905)
 [node name="TriggerBoxSpawnEnemies" parent="." instance=ExtResource("5_c2nb3")]
 position = Vector2(1830, 908)
 
-[node name="HUD" parent="." instance=ExtResource("7_4o7h1")]
-
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]
 [connection signal="loadRight" from="Levels/BiVein" to="." method="_on_bi_vein_load_right"]
 [connection signal="loadLeft" from="Levels/BiVein2" to="." method="_on_bi_vein_load_left"]
 [connection signal="loadRight" from="Levels/BiVein2" to="." method="_on_bi_vein_load_right"]
 [connection signal="loadNext" from="Levels/SimpleVein" to="." method="_on_simple_vein_load_next"]
 [connection signal="loadNext" from="Levels/SimpleVein2" to="." method="_on_simple_vein_load_next"]
+[connection signal="gameOver" from="SoftBody2D" to="." method="_on_soft_body_2d_game_over"]
 [connection signal="hurt" from="SoftBody2D" to="HUD" method="_on_soft_body_2d_hurt"]

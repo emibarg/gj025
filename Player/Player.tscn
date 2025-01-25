@@ -11,6 +11,7 @@ script/source = "extends SoftBody2D
 @export var TargetY : int = 905
 
 signal hurt(newHP)
+signal gameOver()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,6 +47,8 @@ func _process(delta):
 	pass
 
 func die():
+	hurt.emit(0)
+	gameOver.emit()
 	queue_free()
 	pass
 
@@ -58,7 +61,6 @@ func handleHealth():
 
 
 func _on_hit_box_body_entered(body):
-	print(\"OUCH! You collided with \", body)
 	if body.is_in_group(\"Enemy\"):
 		hitPoints -= 1
 		hurt.emit(hitPoints)

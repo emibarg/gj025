@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=11 format=3 uid="uid://cev1e6eh2gh3y"]
 
 [ext_resource type="Script" path="res://Map/bi_vein.gd" id="1_uyn5g"]
 [ext_resource type="Texture2D" uid="uid://br7gndbtfla05" path="res://Map/correcciones/bifurcación/bifurcacion relleno.png" id="2_rli6x"]
@@ -7,9 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://cv7ympom4crxp" path="res://Map/correcciones/relleno rosa.png" id="5_6yejc"]
 [ext_resource type="Texture2D" uid="uid://c1sq5ju2eeq45" path="res://Map/correcciones/texturarelleno.png" id="6_rvisw"]
 [ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="7_8gvmp"]
+[ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="8_othbm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_viv7f"]
 size = Vector2(20, 23.8218)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1os3g"]
+radius = 89.0505
 
 [node name="BiVein" type="Node2D"]
 script = ExtResource("1_uyn5g")
@@ -84,7 +88,27 @@ position = Vector2(947, -2956)
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallMiddle"]
-polygon = PackedVector2Array(-57, -596, -137, -974, -163, -1513, 503, -1473, 442, -1049, 118, -481, 34, -430)
+polygon = PackedVector2Array(-57, -596, -137, -974, -163, -1513, 503, -1473, 442, -1049, 134, -525, 53, -486, -13, -517)
+
+[node name="Spawners" type="Node2D" parent="."]
+position = Vector2(1012, -841)
+
+[node name="TriggerBoxSpawnEnemies" parent="Spawners" instance=ExtResource("8_othbm")]
+position = Vector2(-45, 521)
+
+[node name="TriggerBoxSpawnEnemies2" parent="Spawners" instance=ExtResource("8_othbm")]
+position = Vector2(-68, -279)
+
+[node name="TriggerBoxSpawnEnemies3" parent="Spawners" instance=ExtResource("8_othbm")]
+position = Vector2(-30, -1011)
+
+[node name="KillZone" type="Area2D" parent="."]
+position = Vector2(999, -3456)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
+position = Vector2(3, -13)
+shape = SubResource("CircleShape2D_1os3g")
 
 [connection signal="body_entered" from="GoLeft" to="." method="_on_go_left_body_entered"]
 [connection signal="body_entered" from="GoRight" to="." method="_on_go_right_body_entered"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]

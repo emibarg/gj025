@@ -6,6 +6,7 @@ var goLeft : bool = false
 var goRight : bool = false
 var goDown : bool = false
 var nodeToMove
+var extraRoad
 var startPos : float
 var levelCount = 1
 
@@ -20,8 +21,7 @@ var levelCount = 1
 func _ready() -> void:
 	
 	var primerNivel : int = randi_range(0,1) # 0,1,2,
-	
-	primerNivel = 0
+	extraRoad = $Levels/CaminoExtra
 	
 	if primerNivel == 0:
 		$Levels/SimpleVein.global_position = Vector2(0,0)
@@ -39,19 +39,29 @@ func _process(delta: float) -> void:
 	
 	if goLeft:
 		$Levels.global_position += Vector2.RIGHT * slideSpeed * delta
+		extraRoad.global_position -=  Vector2.RIGHT * slideSpeed * delta * 1.3
 		
 		if $Levels.global_position.x >= startPos + 593:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
+			extraRoad.global_position = Vector2(-30000, -1080)
+			extraRoad.move = false
+			
 			goLeft = false
 		pass
 	
 	if goRight:
 		$Levels.global_position += Vector2.LEFT * slideSpeed * delta
+		extraRoad.disolver = true
 		
 		if $Levels.global_position.x <= startPos - 780:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
+			
+			extraRoad.global_position = Vector2(-30000, -1080)
+			extraRoad.restaurar = true
+			extraRoad.move = false
+			
 			goRight = false
 	
 	
@@ -68,7 +78,10 @@ func _process(delta: float) -> void:
 
 func _on_bi_vein_load_left(newLeftLevel, id):
 	var leftCorner = Vector2(-593, -1080)
+	var rightCorner = Vector2(780,-1080)
 	
+	extraRoad.global_position = rightCorner
+	extraRoad.move = true
 	
 	if newLeftLevel == 0:
 		$Levels/SimpleVein.global_position = leftCorner
@@ -95,8 +108,10 @@ func _on_bi_vein_load_left(newLeftLevel, id):
 
 func _on_bi_vein_load_right(newRightLevel, id):
 	var rightCorner = Vector2(780,-1080)
+	var leftCorner = Vector2(-593, -1080)
 	
-	
+	extraRoad.global_position = leftCorner
+	extraRoad.move = true
 	
 	if newRightLevel == 0:
 		$Levels/SimpleVein.global_position = rightCorner
@@ -150,4 +165,12 @@ func _on_simple_vein_load_next(newLevel, id):
 	
 	goDown = true
 	startPos = nodeToMove.global_position.y
+	pass # Replace with function body.
+
+
+func _on_soft_body_2d_game_over():
+	
+	for level in $Levels.get_children():
+		level.move = false
+	
 	pass # Replace with function body.

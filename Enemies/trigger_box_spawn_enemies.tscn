@@ -7,6 +7,7 @@
 
 [node name="TriggerBoxSpawnEnemies" type="Area2D"]
 script = ExtResource("1_ak8ls")
+maxEnemies = 2
 enemyScene = ExtResource("2_1gj54")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

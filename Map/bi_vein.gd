@@ -53,3 +53,9 @@ func _on_go_right_body_entered(body):
 		loadRight.emit(rightLevel, ID)
 		unload = true
 	pass # Replace with function body.
+
+
+func _on_kill_zone_body_entered(body):
+	if body.is_in_group("Player"):
+		body.get_parent().die()
+	pass # Replace with function body.
