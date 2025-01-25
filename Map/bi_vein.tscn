@@ -1,8 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=5 format=3 uid="uid://cev1e6eh2gh3y"]
 
 [ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/player.tscn" id="1_7vkam"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cotoi"]
+size = Vector2(38, 568)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga130"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ixij1"]
+size = Vector2(356, 477)
 
 [node name="BiVein" type="Node2D"]
 
@@ -11,9 +17,18 @@ position = Vector2(640, -2920)
 collision_mask = 0
 gravity_scale = 0.0
 
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-193, -4680)
+shape = SubResource("RectangleShape2D_cotoi")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
 scale = Vector2(1, 400)
 shape = SubResource("RectangleShape2D_ga130")
+
+[node name="top_r_r_wall2" type="CollisionPolygon2D" parent="WallLeft"]
+position = Vector2(0, -4051)
+scale = Vector2(-1, 1)
+polygon = PackedVector2Array(16, 24, 10, 50, -13, 54, -7, -33, 186, -351, 220, -327, 102.042, -124.043)
 
 [node name="WallRight" type="RigidBody2D" parent="."]
 position = Vector2(1280, -2920)
@@ -25,9 +40,25 @@ lock_rotation = true
 scale = Vector2(1, 400)
 shape = SubResource("RectangleShape2D_ga130")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(203, -4680)
+shape = SubResource("RectangleShape2D_cotoi")
+
 [node name="top_r_r_wall" type="CollisionPolygon2D" parent="WallRight"]
 position = Vector2(0, -4051)
 polygon = PackedVector2Array(16, 24, 10, 50, -13, 54, -7, -33, 186, -351, 220, -327)
 
 [node name="SoftBody2D" parent="WallRight" instance=ExtResource("1_7vkam")]
-position = Vector2(-238, -4448)
+position = Vector2(-696, -4470)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(947, -7430)
+collision_mask = 0
+gravity_scale = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+polygon = PackedVector2Array(-26, 25, -162, 29, 1, 354, 194, 27, 20, 15, 18, -32, -26, -36)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(14, -211.5)
+shape = SubResource("RectangleShape2D_ixij1")
