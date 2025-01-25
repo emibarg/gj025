@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=9 format=3 uid="uid://cev1e6eh2gh3y"]
 
+[ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/player.tscn" id="1_7vkam"]
 [ext_resource type="Script" path="res://Map/bi_vein.gd" id="1_uyn5g"]
 [ext_resource type="Shader" path="res://Main/test.gdshader" id="2_mn7gi"]
 [ext_resource type="Texture2D" uid="uid://cikypeosmlgwu" path="res://Map/19882.jpg" id="2_yve11"]
@@ -24,6 +25,9 @@ shader_parameter/num_of_layers = 40
 
 [node name="BiVein" type="Node2D"]
 script = ExtResource("1_uyn5g")
+
+[node name="SoftBody2D" parent="." instance=ExtResource("1_7vkam")]
+position = Vector2(899, 900)
 
 [node name="WallLeft" type="RigidBody2D" parent="."]
 position = Vector2(640, -2920)
@@ -78,6 +82,5 @@ shape = SubResource("RectangleShape2D_ixij1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 material = SubResource("ShaderMaterial_dv0n7")
-position = Vector2(984, -1072)
-scale = Vector2(1.02188, 1)
+position = Vector2(963, -1072)
 texture = ExtResource("2_yve11")
