@@ -90,7 +90,6 @@ polygon = PackedVector2Array(16, 24, 10, 50, -13, 54, -7, -33, 186, -351, 220, -
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="WallRight"]
 position = Vector2(491.479, 22.8442)
 rotation = 0.843875
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_3qc1x")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]

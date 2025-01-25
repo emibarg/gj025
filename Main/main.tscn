@@ -16,7 +16,6 @@ position = Vector2(-30000, 1080)
 
 [node name="BiVein2" parent="Levels" instance=ExtResource("6_d0mww")]
 position = Vector2(-31920, 1080)
-ID = 2
 
 [node name="SimpleVein" parent="Levels" instance=ExtResource("2_1ei74")]
 position = Vector2(-31920, 0)
@@ -30,17 +29,8 @@ offset = Vector2(960, 540)
 [node name="SoftBody2D" parent="." instance=ExtResource("2_q8phl")]
 position = Vector2(890, 905)
 
-[node name="EnemyRigidBody" parent="." instance=ExtResource("4_laoid")]
-position = Vector2(1160, -108)
-collision_layer = 1
-
-[node name="TriggerBoxSpawnEnemies" parent="." instance=ExtResource("5_c2nb3")]
-position = Vector2(1830, 908)
-
 [node name="HUD" parent="." instance=ExtResource("7_4o7h1")]
 
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]
-[connection signal="loadRight" from="Levels/BiVein" to="." method="_on_bi_vein_load_right"]
 [connection signal="loadLeft" from="Levels/BiVein2" to="." method="_on_bi_vein_load_left"]
-[connection signal="loadRight" from="Levels/BiVein2" to="." method="_on_bi_vein_load_right"]
 [connection signal="hurt" from="SoftBody2D" to="HUD" method="_on_soft_body_2d_hurt"]
