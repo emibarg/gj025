@@ -1,13 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=11 format=3 uid="uid://cev1e6eh2gh3y"]
 
 [ext_resource type="Script" path="res://Map/bi_vein.gd" id="1_uyn5g"]
+[ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_cpqmk"]
 [ext_resource type="Shader" path="res://Main/test.gdshader" id="2_mn7gi"]
 [ext_resource type="Texture2D" uid="uid://cikypeosmlgwu" path="res://Map/19882.jpg" id="2_yve11"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_viv7f"]
+size = Vector2(20, 15.4962)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cotoi"]
 size = Vector2(38, 568)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ga130"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qc1x"]
+size = Vector2(143.275, 666.43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ixij1"]
 size = Vector2(356, 477)
@@ -24,6 +31,18 @@ shader_parameter/num_of_layers = 40
 
 [node name="BiVein" type="Node2D"]
 script = ExtResource("1_uyn5g")
+gravity = 900
+possibleLevels = Array[PackedScene]([ExtResource("2_cpqmk")])
+
+[node name="GoLeft" type="Area2D" parent="."]
+position = Vector2(712, -2619)
+rotation = 0.933368
+scale = Vector2(14.044, 29.7891)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoLeft"]
+position = Vector2(-0.0126801, 0.143168)
+shape = SubResource("RectangleShape2D_viv7f")
 
 [node name="WallLeft" type="StaticBody2D" parent="."]
 position = Vector2(640, -2920)
@@ -58,8 +77,14 @@ position = Vector2(203, -4680)
 shape = SubResource("RectangleShape2D_cotoi")
 
 [node name="top_r_r_wall" type="CollisionPolygon2D" parent="WallRight"]
-position = Vector2(0, -4051)
+position = Vector2(12, 532)
 polygon = PackedVector2Array(16, 24, 10, 50, -13, 54, -7, -33, 186, -351, 220, -327)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(491.479, 22.8442)
+rotation = 0.843875
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_3qc1x")
 
 [node name="RigidBody2D" type="StaticBody2D" parent="."]
 position = Vector2(947, -2956)
@@ -78,3 +103,5 @@ material = SubResource("ShaderMaterial_dv0n7")
 position = Vector2(984, -1072)
 scale = Vector2(1.02188, 1)
 texture = ExtResource("2_yve11")
+
+[connection signal="body_entered" from="GoLeft" to="." method="_on_go_left_body_entered"]
