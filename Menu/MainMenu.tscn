@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4nxbyev1yroy"]
+[gd_scene load_steps=20 format=3 uid="uid://c4nxbyev1yroy"]
 
 [ext_resource type="Texture2D" uid="uid://bc1s0ycnjiqvq" path="res://Menu/bubblelogo.png" id="1_ayn2d"]
 [ext_resource type="Shader" path="res://Menu/Button.gdshader" id="2_jsbfh"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Menu/button.gd" id="3_p7krk"]
 [ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="4_5sbvy"]
 [ext_resource type="Texture2D" uid="uid://c11o10dhi81us" path="res://new folder/fondorojo 1920x4320.png" id="5_dn6nt"]
+[ext_resource type="Script" path="res://Menu/button_3.gd" id="5_f2wwo"]
 [ext_resource type="Texture2D" uid="uid://b71nj4kj3wt26" path="res://new folder/PNG image-483E-98C5-A4-0.png" id="6_m8rct"]
 [ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="7_d5cx3"]
 
@@ -163,6 +164,16 @@ text = "  How to play⠀
 "
 script = SubResource("GDScript_xgeei")
 
+[node name="Button3" type="Button" parent="Control/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme = SubResource("Theme_1i3qa")
+theme_override_fonts/font = ExtResource("3_5xww4")
+text = "       quit⠀⠀⠀⠀
+"
+script = ExtResource("5_f2wwo")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(1080, 555)
@@ -191,3 +202,4 @@ texture = ExtResource("7_d5cx3")
 
 [connection signal="pressed" from="Control/GridContainer/Button" to="Control/GridContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="Control/GridContainer/Button2" to="Control/GridContainer/Button2" method="_on_pressed"]
+[connection signal="pressed" from="Control/GridContainer/Button3" to="Control/GridContainer/Button3" method="_on_pressed"]
