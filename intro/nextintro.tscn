@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbapqfitqwp44"]
 
 [ext_resource type="FontFile" uid="uid://c245ec3di04l3" path="res://Menu/upheavtt.ttf" id="1_hiuvy"]
-[ext_resource type="Texture2D" uid="uid://d2j6g304kkais" path="res://intro/doc & guy.png" id="2_50ff7"]
+[ext_resource type="Texture2D" uid="uid://bxnyv8y724dqh" path="res://intro/manoconjeringa.png" id="2_ew2k2"]
 [ext_resource type="Script" path="res://Menu/buttonBACK.gd" id="3_u6st7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clwtk"]
@@ -35,18 +35,18 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 547.0
-offset_top = 384.0
-offset_right = 1870.0
-offset_bottom = 638.0
+offset_left = 50.0
+offset_top = 427.0
+offset_right = 1373.0
+offset_bottom = 681.0
 theme_override_fonts/font = ExtResource("1_hiuvy")
 theme_override_font_sizes/font_size = 100
 text = "Billy: Bueno...
           Elijo creer, doc"
 
 [node name="FatGuyFart" type="Sprite2D" parent="."]
-position = Vector2(346, 670)
-texture = ExtResource("2_50ff7")
+position = Vector2(1675, 407)
+texture = ExtResource("2_ew2k2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
