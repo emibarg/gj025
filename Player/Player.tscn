@@ -11,6 +11,7 @@ script/source = "extends SoftBody2D
 @export var hitPoints : int = 3
 @export var TargetY : int = 905
 
+
 var dissolveCounter : int = 0
 var alive : bool = false
 
@@ -83,6 +84,9 @@ func _on_hit_box_body_entered(body):
 	if body.is_in_group(\"Enemy\"):
 		hitPoints -= 1
 		hurt.emit(hitPoints)
+		texture = load(\"res://Player/caragolpeada.png\")
+		await get_tree().create_timer(0.2).timeout
+		texture = load(\"res://Player/burbujadefinitiva.png\")
 		pass
 	pass # Replace with function body.
 

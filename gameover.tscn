@@ -63,8 +63,8 @@ text = "GAME OVER"
 [node name="Button2" type="Button" parent="."]
 offset_left = 767.0
 offset_top = 579.0
-offset_right = 1145.0
-offset_bottom = 657.0
+offset_right = 1209.0
+offset_bottom = 687.0
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = SubResource("Theme_ctj1y")
@@ -72,5 +72,13 @@ theme_override_fonts/font = ExtResource("1_16wyx")
 text = "  How to play⠀
 "
 script = SubResource("GDScript_84aqw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.0901961)
 
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
