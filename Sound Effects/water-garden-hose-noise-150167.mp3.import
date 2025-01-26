@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drgbowuyjbor4"
+path="res://.godot/imported/water-garden-hose-noise-150167.mp3-81dc91a8b4079cd8b08c221a6302e2be.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/water-garden-hose-noise-150167.mp3"
+dest_files=["res://.godot/imported/water-garden-hose-noise-150167.mp3-81dc91a8b4079cd8b08c221a6302e2be.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
