@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbapqfitqwp44"]
+[gd_scene load_steps=9 format=3 uid="uid://cbapqfitqwp44"]
 
 [ext_resource type="FontFile" uid="uid://c245ec3di04l3" path="res://Menu/upheavtt.ttf" id="1_hiuvy"]
+[ext_resource type="Script" path="res://intro/nextintrocontrol.gd" id="1_smvvm"]
 [ext_resource type="Texture2D" uid="uid://bxnyv8y724dqh" path="res://intro/manoconjeringa.png" id="2_ew2k2"]
 [ext_resource type="Script" path="res://Menu/buttonBACK.gd" id="3_u6st7"]
+[ext_resource type="AudioStream" uid="uid://dvv2d42tbn53a" path="res://intro/belief.mp3" id="5_8n6ep"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clwtk"]
 bg_color = Color(0.103544, 1.0115e-07, 9.02452e-09, 0.964706)
@@ -32,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_smvvm")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -73,5 +76,9 @@ theme = SubResource("Theme_fyr1p")
 theme_override_fonts/font = ExtResource("1_hiuvy")
 text = "->"
 script = ExtResource("3_u6st7")
+
+[node name="BELIEVEME" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8n6ep")
+volume_db = 8.0
 
 [connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
