@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://dam3nc2f7w8j"]
+[gd_scene load_steps=33 format=3 uid="uid://dam3nc2f7w8j"]
 
 [ext_resource type="Material" uid="uid://r08gmu5mtwph" path="res://test.tres" id="1_r865e"]
 [ext_resource type="Script" path="res://Player/hit_box.gd" id="2_8t1we"]
 [ext_resource type="Texture2D" uid="uid://d1nxsh41ejroc" path="res://Player/burbujadefinitiva.png" id="2_ktbs0"]
+[ext_resource type="AudioStream" uid="uid://10op5e8punlc" path="res://Player/hit.mp3" id="4_tny1j"]
 
 [sub_resource type="GDScript" id="GDScript_gadep"]
 script/source = "extends SoftBody2D
@@ -85,6 +86,7 @@ func dissolve():
 func _on_hit_box_body_entered(body):
 	if body.is_in_group(\"Enemy\") and hurtable:
 		hurtable = false
+		$AudioStreamPlayer2D.play()
 		hitPoints -= 1
 		hurt.emit(hitPoints)
 		texture = load(\"res://Player/caragolpeada.png\")
@@ -2018,6 +2020,9 @@ wait_time = 0.1
 [node name="OuchyTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_tny1j")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="DissolveTimer" to="." method="_on_dissolve_timer_timeout"]
