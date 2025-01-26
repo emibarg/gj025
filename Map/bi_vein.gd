@@ -22,7 +22,7 @@ func _ready() -> void:
 	goFast = false
 	unload = false
 	
-	rightLevelRoll = 80
+	rightLevelRoll = 90
 	
 	if rightLevelRoll <= 30:
 		rightLevel = 0

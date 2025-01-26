@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=13 format=3 uid="uid://cev1e6eh2gh3y"]
 
 [ext_resource type="Script" path="res://Map/bi_vein.gd" id="1_uyn5g"]
 [ext_resource type="PackedScene" uid="uid://p0svuotbhcey" path="res://godray_h.tscn" id="2_c0gp8"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1sq5ju2eeq45" path="res://Map/correcciones/texturarelleno.png" id="6_rvisw"]
 [ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="7_8gvmp"]
 [ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="8_othbm"]
+[ext_resource type="PackedScene" uid="uid://c5emm3upqo2wx" path="res://new folder/Humo.tscn" id="10_37a0v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_viv7f"]
 size = Vector2(20, 23.8218)
@@ -115,6 +116,10 @@ visible = false
 position = Vector2(2313, -4465)
 rotation = 0.306394
 scale = Vector2(-5.96639, 7.89389)
+
+[node name="Humo" parent="." instance=ExtResource("10_37a0v")]
+position = Vector2(1969, -4656)
+rotation = 2.12377
 
 [connection signal="body_entered" from="GoLeft" to="." method="_on_go_left_body_entered"]
 [connection signal="body_entered" from="GoRight" to="." method="_on_go_right_body_entered"]

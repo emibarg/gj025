@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5emm3upqo2wx"]
+[gd_scene load_steps=8 format=3 uid="uid://c5emm3upqo2wx"]
 
 [ext_resource type="Texture2D" uid="uid://dl13rly6uxrvy" path="res://new folder/PEDOF.png" id="1_7w0t4"]
 
@@ -7,6 +7,13 @@ particles_animation = true
 particles_anim_h_frames = 5
 particles_anim_v_frames = 5
 particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_6j7o0"]
+_data = [Vector2(0.00211864, 0.592453), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_51t1q"]
+curve = SubResource("Curve_6j7o0")
 
 [sub_resource type="Curve" id="Curve_nk417"]
 max_value = 100.0
@@ -19,11 +26,17 @@ curve = SubResource("Curve_nk417")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sktu7"]
 particle_flag_disable_z = true
 velocity_pivot = Vector3(0, 2, 0)
-angular_velocity_min = -180.0
-angular_velocity_max = 100.0
+spread = 10.0
+initial_velocity_min = 600.0
+initial_velocity_max = 600.0
+angular_velocity_min = 9.99998
+angular_velocity_max = 9.99998
 gravity = Vector3(0, 0, 0)
 damping_max = 3.0
 damping_curve = SubResource("CurveTexture_6w86y")
+scale_min = 4.77
+scale_max = 4.77
+alpha_curve = SubResource("CurveTexture_51t1q")
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
@@ -31,7 +44,8 @@ anim_speed_max = 1.0
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 material = SubResource("CanvasItemMaterial_3q2ut")
-amount = 4
+amount = 50
 process_material = SubResource("ParticleProcessMaterial_sktu7")
 texture = ExtResource("1_7w0t4")
 lifetime = 3.0
+visibility_rect = Rect2(-100, -100, 4000, 200)
