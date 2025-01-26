@@ -7,14 +7,14 @@
 [ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="4_u3by6"]
 [ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="5_yiyxq"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clwtk"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ji5j"]
 bg_color = Color(0.103544, 1.0115e-07, 9.02452e-09, 0.964706)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yev1c"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xjtfu"]
 bg_color = Color(0.6, 0, 0, 0.964706)
 border_width_bottom = 11
 border_color = Color(0.378232, 6.04643e-07, 4.81308e-08, 0.964706)
@@ -25,8 +25,8 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_2exyf"]
 default_font_size = 65
-Button/styles/hover = SubResource("StyleBoxFlat_clwtk")
-Button/styles/normal = SubResource("StyleBoxFlat_yev1c")
+Button/styles/hover = SubResource("StyleBoxFlat_1ji5j")
+Button/styles/normal = SubResource("StyleBoxFlat_xjtfu")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iogxj"]
 shader = ExtResource("4_u3by6")
