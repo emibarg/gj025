@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceiy3eialmc0p"]
+[gd_scene load_steps=9 format=3 uid="uid://ceiy3eialmc0p"]
 
+[ext_resource type="Script" path="res://intro/intro_1.gd" id="1_463gm"]
 [ext_resource type="FontFile" uid="uid://c245ec3di04l3" path="res://Menu/upheavtt.ttf" id="1_h5fm6"]
 [ext_resource type="Texture2D" uid="uid://d2j6g304kkais" path="res://intro/doc & guy.png" id="2_i7n8g"]
 [ext_resource type="Script" path="res://intro/nextintro.gd" id="3_mhvex"]
+[ext_resource type="AudioStream" uid="uid://cgqi21nfh16k" path="res://intro/dontworry.mp3" id="5_6i0fk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clwtk"]
 bg_color = Color(0.103544, 1.0115e-07, 9.02452e-09, 0.964706)
@@ -32,6 +34,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_463gm")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -74,5 +77,9 @@ theme = SubResource("Theme_rhrv0")
 theme_override_fonts/font = ExtResource("1_h5fm6")
 text = "->"
 script = ExtResource("3_mhvex")
+
+[node name="DONTWORRY" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_6i0fk")
+volume_db = 8.0
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
