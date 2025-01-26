@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=15 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
@@ -10,6 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://54y3xlmt2ioy" path="res://new folder/ParallaxBG.tscn" id="8_vttmc"]
 [ext_resource type="AudioStream" uid="uid://7lgod5gm7j4r" path="res://Player/dungeon 8bit v2.wav" id="9_28epc"]
 [ext_resource type="PackedScene" uid="uid://dbx4nn2rxjcp1" path="res://gameover.tscn" id="10_suv5g"]
+[ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="11_h6koc"]
+[ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="11_mxr6o"]
+[ext_resource type="PackedScene" uid="uid://vnyxlnve2a4y" path="res://inyeccion.tscn" id="13_jumww"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_78r50"]
+shader = ExtResource("11_h6koc")
+shader_parameter/spread = 0.5
+shader_parameter/size = 4.0
+shader_parameter/snow_color = Color(1, 0, 0, 0.2)
+shader_parameter/snow_transparency = 1.0
+shader_parameter/speed = 0.1
+shader_parameter/wind = 0.0
+shader_parameter/num_of_layers = 40
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("ParallaxBack")]
 script = ExtResource("1_xug03")
@@ -64,6 +77,15 @@ volume_db = -4.724
 autoplay = true
 
 [node name="GameOver" parent="." instance=ExtResource("10_suv5g")]
+
+[node name="Vacio" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_78r50")
+position = Vector2(959, 541.5)
+scale = Vector2(8.58036, 4.81696)
+texture = ExtResource("11_mxr6o")
+
+[node name="Node2D" parent="." instance=ExtResource("13_jumww")]
+position = Vector2(-192, 99)
 
 [connection signal="heartCompleted" from="Levels/HeartVein" to="." method="_on_heart_vein_heart_completed"]
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]

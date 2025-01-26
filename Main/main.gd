@@ -11,6 +11,7 @@ var extraRoad
 var startPos : float
 var levelCount = 1
 var heartEnd : bool = false
+var startLevel : bool = false
 
 signal gameWon()
 
@@ -26,12 +27,17 @@ func _ready() -> void:
 	var primerNivel : int = randi_range(0,1) # 0,1,
 	extraRoad = $Levels.get_node("ExtraVein")
 	
+	
 	if primerNivel == 0:
 		$Levels/SimpleVein.global_position = Vector2(0,0)
+		await get_tree().create_timer(3).timeout
 		$Levels/SimpleVein.move = true
 	if primerNivel == 1:
 		$Levels/BiVein.global_position = Vector2(0,0)
+		await get_tree().create_timer(3).timeout
 		$Levels/BiVein.move = true
+	
+	set("startLevel", true)
 	
 	pass
 
@@ -99,6 +105,7 @@ func _on_bi_vein_load_left(newLeftLevel, id):
 	
 	if newLeftLevel == 0:
 		$Levels/SimpleVein.global_position = leftCorner
+
 		$Levels/SimpleVein.move = true
 		if id == 1:
 			nodeToMove = $Levels/BiVein
@@ -171,6 +178,7 @@ func _on_simple_vein_load_next(newLevel, id):
 	
 	newLevel = 1
 	
+		
 	if newLevel == 0:
 		if id == 1:
 			$Levels/SimpleVein2.global_position = corner
@@ -190,8 +198,8 @@ func _on_simple_vein_load_next(newLevel, id):
 		if id == 2:
 			nodeToMove = $Levels/SimpleVein2
 		pass
-	
-	goDown = true
+	if startLevel:
+		goDown = true
 	startPos = nodeToMove.global_position.y
 	pass # Replace with function body.
 
