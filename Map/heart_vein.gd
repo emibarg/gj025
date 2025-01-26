@@ -42,6 +42,7 @@ func changeColor():
 	$CaminoRecto.modulate = Color(temp.r - Rdiff * x, temp.g - Gdiff * x, temp.b - BDiff * x);
 	
 	if x >= 10:
+		$Latidos.play()
 		$ColorAnimatino.queue_free()
 		pass
 	

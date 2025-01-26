@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqphomwumevmc"]
+[gd_scene load_steps=10 format=3 uid="uid://cqphomwumevmc"]
 
 [ext_resource type="Texture2D" uid="uid://cv7ympom4crxp" path="res://Map/correcciones/relleno rosa.png" id="1_eodug"]
 [ext_resource type="Script" path="res://Map/stomach_vein.gd" id="1_l46bc"]
+[ext_resource type="AudioStream" uid="uid://bhyu3o4d5tog2" path="res://Sound Effects/wind-blowing-sfx-12809.mp3" id="2_qufw0"]
 [ext_resource type="Texture2D" uid="uid://c1sq5ju2eeq45" path="res://Map/correcciones/texturarelleno.png" id="2_xrk6p"]
 [ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="3_mxuuc"]
 [ext_resource type="PackedScene" uid="uid://c7cf8bdt4itlk" path="res://new folder/HumoStomachVein.tscn" id="5_2oflm"]
@@ -15,6 +16,20 @@ size = Vector2(895, 264)
 
 [node name="stomachVein" type="Node2D"]
 script = ExtResource("1_l46bc")
+
+[node name="Viento" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qufw0")
+volume_db = 4.0
+max_distance = 90000.0
+attenuation = 0.0228763
+parameters/looping = true
+
+[node name="GoFastZone" type="Area2D" parent="."]
+position = Vector2(977, -58)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoFastZone"]
+modulate = Color(1, 1, 0, 1)
+shape = SubResource("RectangleShape2D_8lrwk")
 
 [node name="CaminoRecto" type="Node2D" parent="."]
 use_parent_material = true
@@ -64,13 +79,6 @@ polygon = PackedVector2Array(1324, 1083, 1316, 97, 1333, -576, 1377, -768, 1313,
 [node name="ColorAnimation" type="Timer" parent="."]
 wait_time = 0.1
 
-[node name="GoFastZone" type="Area2D" parent="."]
-position = Vector2(977, -58)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GoFastZone"]
-modulate = Color(1, 1, 0, 1)
-shape = SubResource("RectangleShape2D_8lrwk")
-
 [node name="EndZone" type="Area2D" parent="."]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(996, -6086)
@@ -119,6 +127,6 @@ minEnemies = 2
 maxSpeed = 10
 minSpeed = 5
 
-[connection signal="timeout" from="ColorAnimation" to="." method="_on_color_animation_timeout"]
 [connection signal="body_entered" from="GoFastZone" to="." method="_on_go_fast_zone_body_entered"]
+[connection signal="timeout" from="ColorAnimation" to="." method="_on_color_animation_timeout"]
 [connection signal="body_entered" from="EndZone" to="." method="_on_end_zone_body_entered"]

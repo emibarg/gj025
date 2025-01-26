@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4j4mccb80sl0"]
+[gd_scene load_steps=10 format=3 uid="uid://b4j4mccb80sl0"]
 
 [ext_resource type="Texture2D" uid="uid://cv7ympom4crxp" path="res://Map/correcciones/relleno rosa.png" id="1_hns68"]
 [ext_resource type="Script" path="res://Map/intestine_vein.gd" id="1_me2sq"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="3_8vdfy"]
 [ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_vaar2"]
 [ext_resource type="PackedScene" uid="uid://ciepjef6mqiv1" path="res://new folder/HumoVein.tscn" id="5_y0t43"]
+[ext_resource type="AudioStream" uid="uid://bhyu3o4d5tog2" path="res://Sound Effects/wind-blowing-sfx-12809.mp3" id="7_xvm46"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56smn"]
 size = Vector2(764, 106)
@@ -119,6 +120,13 @@ wait_time = 0.1
 
 [node name="HumoVein" parent="." instance=ExtResource("5_y0t43")]
 position = Vector2(1169, -7028)
+
+[node name="Viento" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_xvm46")
+volume_db = 4.0
+max_distance = 90000.0
+attenuation = 0.0228763
+parameters/looping = true
 
 [connection signal="body_entered" from="AccelerateZone" to="." method="_on_accelerate_zone_body_entered"]
 [connection signal="body_entered" from="EndZone" to="." method="_on_end_zone_body_entered"]

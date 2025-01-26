@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://legpqfkjbtaf"]
+[gd_scene load_steps=11 format=3 uid="uid://legpqfkjbtaf"]
 
 [ext_resource type="Texture2D" uid="uid://cv7ympom4crxp" path="res://Map/correcciones/relleno rosa.png" id="1_af4x0"]
 [ext_resource type="Script" path="res://Map/heart_vein.gd" id="1_hu121"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="3_yymwq"]
 [ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_fdbuo"]
 [ext_resource type="PackedScene" uid="uid://p0svuotbhcey" path="res://godray_h.tscn" id="6_4yia7"]
+[ext_resource type="AudioStream" uid="uid://x4qe0lsbwh5v" path="res://Sound Effects/heartbeat-01-brvhrtz-225058.mp3" id="7_jq8vc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2wi7"]
 size = Vector2(843, 104)
@@ -139,6 +140,13 @@ minSpeed = 10
 
 [node name="ColorAnimatino" type="Timer" parent="."]
 wait_time = 0.1
+
+[node name="Latidos" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_jq8vc")
+volume_db = 13.0
+max_distance = 90000.0
+attenuation = 0.026278
+parameters/looping = true
 
 [connection signal="body_entered" from="SpeedUpZone" to="." method="_on_speed_up_zone_body_entered"]
 [connection signal="body_entered" from="SlowDownZone" to="." method="_on_slow_down_zone_body_entered"]

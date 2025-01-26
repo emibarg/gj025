@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhyu3o4d5tog2"
+path="res://.godot/imported/wind-blowing-sfx-12809.mp3-76aab15de3497451ccdecc1e6cc4c10f.mp3str"
+
+[deps]
+
+source_file="res://Sound Effects/wind-blowing-sfx-12809.mp3"
+dest_files=["res://.godot/imported/wind-blowing-sfx-12809.mp3-76aab15de3497451ccdecc1e6cc4c10f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

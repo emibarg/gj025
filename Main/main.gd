@@ -79,6 +79,8 @@ func _process(delta: float) -> void:
 		extraRoad.dissolve()
 		extraRoad.move = true
 		
+		
+		
 		if $Levels.global_position.x <= startPos - 780:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
@@ -157,6 +159,7 @@ func _on_bi_vein_load_right(newRightLevel, id):
 	extraRoad.global_position = leftCorner
 	extraRoad.move = true
 	
+	# newRightLevel = 2
 	
 	if newRightLevel == 0:
 		$Levels/SimpleVein.global_position = rightCorner
