@@ -22,7 +22,7 @@ func _ready() -> void:
 	goFast = false
 	unload = false
 	
-	rightLevelRoll = 90
+	rightLevelRoll = 100
 	
 	if rightLevelRoll <= 30:
 		rightLevel = 0
@@ -36,6 +36,7 @@ func _ready() -> void:
 		$Humo.visible = true
 	else :
 		rightLevel = 4
+		$HumoStomach.visible = true
 	
 	pass # Replace with function body.
 
@@ -71,6 +72,7 @@ func _on_go_right_body_entered(body):
 		unload = true
 		$GodrayH.fading = true
 		$Humo.fading = true
+		$HumoStomach.fading = true
 	pass # Replace with function body.
 
 

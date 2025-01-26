@@ -1,0 +1,131 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4j4mccb80sl0"]
+
+[ext_resource type="Texture2D" uid="uid://cv7ympom4crxp" path="res://Map/correcciones/relleno rosa.png" id="1_hns68"]
+[ext_resource type="Script" path="res://Map/intestine_vein.gd" id="1_me2sq"]
+[ext_resource type="Texture2D" uid="uid://c1sq5ju2eeq45" path="res://Map/correcciones/texturarelleno.png" id="2_up3xq"]
+[ext_resource type="Texture2D" uid="uid://bv184dodsv71k" path="res://Map/correcciones/contornovena.png" id="3_8vdfy"]
+[ext_resource type="PackedScene" uid="uid://qek2047ptqxp" path="res://Enemies/trigger_box_spawn_enemies.tscn" id="5_vaar2"]
+[ext_resource type="PackedScene" uid="uid://ciepjef6mqiv1" path="res://new folder/HumoVein.tscn" id="5_y0t43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56smn"]
+size = Vector2(764, 106)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epk5x"]
+size = Vector2(823, 181)
+
+[node name="intestineVein" type="Node2D"]
+script = ExtResource("1_me2sq")
+
+[node name="CaminoRecto" type="Node2D" parent="."]
+use_parent_material = true
+position = Vector2(1012, -841)
+scale = Vector2(1.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+texture = ExtResource("1_hns68")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+texture = ExtResource("2_up3xq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+texture = ExtResource("3_8vdfy")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+position = Vector2(-35.7393, -4274.53)
+rotation = 3.13374
+texture = ExtResource("1_hns68")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+position = Vector2(-35.7393, -4274.53)
+rotation = 3.13374
+texture = ExtResource("2_up3xq")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CaminoRecto"]
+use_parent_material = true
+position = Vector2(-35.7393, -4274.53)
+rotation = 3.13374
+texture = ExtResource("3_8vdfy")
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[node name="TriggerBoxSpawnEnemies" parent="Enemigos" instance=ExtResource("5_vaar2")]
+position = Vector2(994, -143)
+maxEnemies = 3
+minEnemies = 2
+maxSpeed = 10
+minSpeed = 5
+
+[node name="TriggerBoxSpawnEnemies2" parent="Enemigos" instance=ExtResource("5_vaar2")]
+position = Vector2(994, -753)
+maxEnemies = 3
+minEnemies = 2
+maxSpeed = 10
+minSpeed = 5
+
+[node name="TriggerBoxSpawnEnemies3" parent="Enemigos" instance=ExtResource("5_vaar2")]
+position = Vector2(994, -1524)
+maxEnemies = 3
+minEnemies = 2
+maxSpeed = 10
+minSpeed = 5
+
+[node name="TriggerBoxSpawnEnemies4" parent="Enemigos" instance=ExtResource("5_vaar2")]
+position = Vector2(994, -2441)
+maxEnemies = 3
+minEnemies = 2
+maxSpeed = 10
+minSpeed = 5
+
+[node name="TriggerBoxSpawnEnemies5" parent="Enemigos" instance=ExtResource("5_vaar2")]
+position = Vector2(994, -3317)
+maxEnemies = 3
+minEnemies = 2
+maxSpeed = 10
+minSpeed = 5
+
+[node name="TriggerBoxSpawnEnemies6" parent="Enemigos" instance=ExtResource("5_vaar2")]
+position = Vector2(994, -4411)
+maxEnemies = 3
+minEnemies = 2
+maxSpeed = 10
+minSpeed = 5
+
+[node name="WallLeft" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallLeft"]
+polygon = PackedVector2Array(640, 1065, 640, 120, 610, -966, 650, -2100, 660, -2466, 634, -3100, 665, -4434, 602, -5242, 660, -5629, 625, -7034, 120, -6927, 69, 1115)
+
+[node name="WallRight" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WallRight"]
+polygon = PackedVector2Array(1324, 1083, 1316, 97, 1333, -576, 1377, -768, 1313, -1074, 1303, -2076, 1310, -2574, 1374, -3375, 1334, -4325, 1325, -6998, 1593, -6956, 1638, 1081)
+
+[node name="AccelerateZone" type="Area2D" parent="."]
+modulate = Color(0, 0, 1, 1)
+position = Vector2(991, -55)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AccelerateZone"]
+shape = SubResource("RectangleShape2D_56smn")
+
+[node name="EndZone" type="Area2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(978, -6048)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndZone"]
+shape = SubResource("RectangleShape2D_epk5x")
+
+[node name="ColorAnimation" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="HumoVein" parent="." instance=ExtResource("5_y0t43")]
+position = Vector2(1169, -7028)
+
+[connection signal="body_entered" from="AccelerateZone" to="." method="_on_accelerate_zone_body_entered"]
+[connection signal="body_entered" from="EndZone" to="." method="_on_end_zone_body_entered"]
+[connection signal="timeout" from="ColorAnimation" to="." method="_on_color_animation_timeout"]
