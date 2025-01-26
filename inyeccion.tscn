@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1bmgw8lvgwc8"]
+[gd_scene load_steps=7 format=3 uid="uid://vnyxlnve2a4y"]
 
 [ext_resource type="Script" path="res://inyeccion.gd" id="1_qaq3x"]
 [ext_resource type="Texture2D" uid="uid://c47g4nwyygkoi" path="res://new folder/INYECCION.png" id="1_x4ptw"]

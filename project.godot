@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Shader proj"
-run/main_scene="res://intro/intro1.tscn"
+config/name="BubbleTrouble"
+run/main_scene="res://intro/logo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://Player/burbujadefinitiva.png"
 run/size/mode=2
 
 [display]
