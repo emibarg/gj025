@@ -13,6 +13,7 @@ signal heartCompleted()
 func _ready():
 	move = false
 	# move = true
+	
 	goFast = false
 	pass # Replace with function body.
 
@@ -46,6 +47,9 @@ func changeColor():
 	
 	pass
 
+func enableGodRay():
+	$GodrayH.appear()
+	pass
 
 func _on_speed_up_zone_body_entered(body):
 	if body.is_in_group("Player"):
