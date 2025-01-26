@@ -15,6 +15,7 @@ script/source = "extends SoftBody2D
 var dissolveCounter : int = 0
 var alive : bool = false
 var playing : bool = false
+var hurtable : bool = true
 
 signal hurt(newHP)
 signal gameOver()
@@ -82,12 +83,14 @@ func dissolve():
 	pass
 
 func _on_hit_box_body_entered(body):
-	if body.is_in_group(\"Enemy\"):
+	if body.is_in_group(\"Enemy\") and hurtable:
+		hurtable = false
 		hitPoints -= 1
 		hurt.emit(hitPoints)
 		texture = load(\"res://Player/caragolpeada.png\")
 		await get_tree().create_timer(0.2).timeout
 		texture = load(\"res://Player/burbujadefinitiva.png\")
+		$OuchyTimer.start()
 		pass
 	pass # Replace with function body.
 
@@ -100,6 +103,11 @@ func _on_dissolve_timer_timeout():
 
 func _on_main_start():
 	playing = true
+	pass # Replace with function body.
+
+
+func _on_ouchy_timer_timeout():
+	hurtable = true
 	pass # Replace with function body.
 "
 
@@ -2007,5 +2015,10 @@ shape = SubResource("RectangleShape2D_086nj")
 [node name="DissolveTimer" type="Timer" parent="."]
 wait_time = 0.1
 
+[node name="OuchyTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="DissolveTimer" to="." method="_on_dissolve_timer_timeout"]
+[connection signal="timeout" from="OuchyTimer" to="." method="_on_ouchy_timer_timeout"]
