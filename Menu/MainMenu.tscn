@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c4nxbyev1yroy"]
+[gd_scene load_steps=19 format=3 uid="uid://c4nxbyev1yroy"]
 
 [ext_resource type="Texture2D" uid="uid://bc1s0ycnjiqvq" path="res://Menu/bubblelogo.png" id="1_ayn2d"]
 [ext_resource type="Shader" path="res://Menu/Button.gdshader" id="2_jsbfh"]
+[ext_resource type="FontFile" uid="uid://c245ec3di04l3" path="res://Menu/upheavtt.ttf" id="3_5xww4"]
 [ext_resource type="Script" path="res://Menu/button.gd" id="3_p7krk"]
 [ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="4_5sbvy"]
 [ext_resource type="Texture2D" uid="uid://c11o10dhi81us" path="res://new folder/fondorojo 1920x4320.png" id="5_dn6nt"]
@@ -22,7 +23,7 @@ shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tox2k"]
-bg_color = Color(0.24893, 3.89558e-07, 2.40654e-08, 0.964706)
+bg_color = Color(0.103544, 1.0115e-07, 9.02452e-09, 0.964706)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -56,7 +57,7 @@ shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 1.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rijwg"]
-bg_color = Color(0.24893, 3.89558e-07, 2.40654e-08, 0.964706)
+bg_color = Color(0.144091, 2.11324e-07, 6.01634e-09, 0.964706)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -139,15 +140,16 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = SubResource("Theme_grdjt")
-text = "         Play⠀⠀⠀⠀
+theme_override_fonts/font = ExtResource("3_5xww4")
+text = "       Play⠀⠀⠀⠀
 "
 script = ExtResource("3_p7krk")
 
 [node name="ColorRect" type="ColorRect" parent="Control/GridContainer/Button"]
 material = SubResource("ShaderMaterial_urvin")
 layout_mode = 0
-offset_right = 347.0
-offset_bottom = 77.0
+offset_right = 373.0
+offset_bottom = 78.0
 mouse_filter = 2
 color = Color(0.145098, 1, 1, 1)
 
@@ -156,6 +158,7 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 theme = SubResource("Theme_1i3qa")
+theme_override_fonts/font = ExtResource("3_5xww4")
 text = "  How to play⠀
 "
 script = SubResource("GDScript_xgeei")
