@@ -104,6 +104,7 @@ func _process(delta: float) -> void:
 	if goDown and nodeToMove.global_position.y >= startPos + 1400 and not gameOver:
 		nodeToMove.global_position = Vector2(-30000, -1000)
 		nodeToMove.move = false
+		nodeToMove.rollNext()
 		goDown = false
 		pass
 	
