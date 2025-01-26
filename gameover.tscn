@@ -61,6 +61,7 @@ theme_override_font_sizes/font_size = 300
 text = "GAME OVER"
 
 [node name="Button2" type="Button" parent="."]
+layout_mode = 0
 offset_left = 767.0
 offset_top = 579.0
 offset_right = 1209.0
