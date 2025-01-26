@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cojlku33be56v"]
+[gd_scene load_steps=11 format=3 uid="uid://cojlku33be56v"]
 
 [ext_resource type="Script" path="res://Menu/buttonBACK.gd" id="1_an5gk"]
+[ext_resource type="FontFile" uid="uid://c245ec3di04l3" path="res://Menu/upheavtt.ttf" id="1_kuxu8"]
 [ext_resource type="Texture2D" uid="uid://c11o10dhi81us" path="res://new folder/fondorojo 1920x4320.png" id="2_dn31m"]
 [ext_resource type="Texture2D" uid="uid://b71nj4kj3wt26" path="res://new folder/PNG image-483E-98C5-A4-0.png" id="3_d7rcm"]
 [ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="4_u3by6"]
 [ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="5_yiyxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clwtk"]
-bg_color = Color(0.24893, 3.89558e-07, 2.40654e-08, 0.964706)
+bg_color = Color(0.103544, 1.0115e-07, 9.02452e-09, 0.964706)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -52,8 +53,29 @@ offset_top = 21.0
 offset_right = 263.0
 offset_bottom = 193.0
 theme = SubResource("Theme_2exyf")
+theme_override_fonts/font = ExtResource("1_kuxu8")
 text = "<--"
 script = ExtResource("1_an5gk")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 61.0
+offset_right = 1415.0
+offset_bottom = 198.0
+theme_override_fonts/font = ExtResource("1_kuxu8")
+theme_override_font_sizes/font_size = 100
+text = "HOW TO PLAY"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 0
+offset_left = 441.0
+offset_top = 262.0
+offset_right = 1550.0
+offset_bottom = 928.0
+theme_override_fonts/normal_font = ExtResource("1_kuxu8")
+theme_override_font_sizes/normal_font_size = 60
+text = "ERES UNA BURBUJA MALEVOLA. TU OBJETIVO ES TERMINAR CON LA VIDA DE UN PACIENTE. UTILIZA LAS FLECHAS [<-] [->] PARA MOVERTE. TEN CUIDADO CON LOS GLOBULOS ROJOS Y LAS ESQUINAS PUNTIAGUDAS. ¿LOGRARAS TU COMETIDO O ACABARAS SIENDO OTRO TIPO DE GAS?"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
