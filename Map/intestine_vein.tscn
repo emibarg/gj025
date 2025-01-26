@@ -55,42 +55,36 @@ texture = ExtResource("3_8vdfy")
 
 [node name="TriggerBoxSpawnEnemies" parent="Enemigos" instance=ExtResource("5_vaar2")]
 position = Vector2(994, -143)
-maxEnemies = 3
 minEnemies = 2
 maxSpeed = 10
 minSpeed = 5
 
 [node name="TriggerBoxSpawnEnemies2" parent="Enemigos" instance=ExtResource("5_vaar2")]
 position = Vector2(994, -753)
-maxEnemies = 3
 minEnemies = 2
 maxSpeed = 10
 minSpeed = 5
 
 [node name="TriggerBoxSpawnEnemies3" parent="Enemigos" instance=ExtResource("5_vaar2")]
 position = Vector2(994, -1524)
-maxEnemies = 3
 minEnemies = 2
 maxSpeed = 10
 minSpeed = 5
 
 [node name="TriggerBoxSpawnEnemies4" parent="Enemigos" instance=ExtResource("5_vaar2")]
 position = Vector2(994, -2441)
-maxEnemies = 3
 minEnemies = 2
 maxSpeed = 10
 minSpeed = 5
 
 [node name="TriggerBoxSpawnEnemies5" parent="Enemigos" instance=ExtResource("5_vaar2")]
 position = Vector2(994, -3317)
-maxEnemies = 3
 minEnemies = 2
 maxSpeed = 10
 minSpeed = 5
 
 [node name="TriggerBoxSpawnEnemies6" parent="Enemigos" instance=ExtResource("5_vaar2")]
 position = Vector2(994, -4411)
-maxEnemies = 3
 minEnemies = 2
 maxSpeed = 10
 minSpeed = 5

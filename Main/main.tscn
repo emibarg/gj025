@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=17 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://c3l5cvrw6g3wx" path="res://Map/extra_vein.tscn" id="5_us0u1"]
 [ext_resource type="PackedScene" uid="uid://cev1e6eh2gh3y" path="res://Map/bi_vein.tscn" id="6_d0mww"]
 [ext_resource type="PackedScene" uid="uid://dqmkwvryh0au6" path="res://UI/hud.tscn" id="7_4o7h1"]
-[ext_resource type="PackedScene" path="res://Map/heart_vein.tscn" id="8_rt8sf"]
+[ext_resource type="PackedScene" uid="uid://b4j4mccb80sl0" path="res://Map/intestine_vein.tscn" id="7_r3cim"]
+[ext_resource type="PackedScene" uid="uid://legpqfkjbtaf" path="res://Map/heart_vein.tscn" id="8_rt8sf"]
+[ext_resource type="PackedScene" uid="uid://cqphomwumevmc" path="res://Map/stomach_vein.tscn" id="8_s44o6"]
 [ext_resource type="PackedScene" uid="uid://54y3xlmt2ioy" path="res://new folder/ParallaxBG.tscn" id="8_vttmc"]
 [ext_resource type="AudioStream" uid="uid://7lgod5gm7j4r" path="res://Player/dungeon 8bit v2.wav" id="9_28epc"]
 [ext_resource type="PackedScene" uid="uid://dbx4nn2rxjcp1" path="res://gameover.tscn" id="10_suv5g"]
 [ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="11_h6koc"]
 [ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="11_mxr6o"]
-[ext_resource type="PackedScene" uid="uid://vnyxlnve2a4y" path="res://inyeccion.tscn" id="13_jumww"]
+[ext_resource type="PackedScene" path="res://inyeccion.tscn" id="13_jumww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78r50"]
 shader = ExtResource("11_h6koc")
@@ -35,10 +37,12 @@ ParallaxBack = NodePath("Parallax")
 [node name="HeartVein" parent="Levels" instance=ExtResource("8_rt8sf")]
 position = Vector2(37840, -256)
 startingSpeed = 600.0
+move = false
 
 [node name="BiVein" parent="Levels" instance=ExtResource("6_d0mww")]
 position = Vector2(-30000, 1080)
 gravity = 600
+move = false
 
 [node name="BiVein2" parent="Levels" instance=ExtResource("6_d0mww")]
 position = Vector2(-31920, 1080)
@@ -61,6 +65,14 @@ z_index = -1
 position = Vector2(-20736, 3456)
 gravity = 600
 ID = 0
+
+[node name="intestineVein" parent="Levels" instance=ExtResource("7_r3cim")]
+position = Vector2(41088, -384)
+move = false
+
+[node name="stomachVein" parent="Levels" instance=ExtResource("8_s44o6")]
+position = Vector2(44160, -256)
+move = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
@@ -94,5 +106,7 @@ position = Vector2(-192, 99)
 [connection signal="loadRight" from="Levels/BiVein2" to="." method="_on_bi_vein_load_right"]
 [connection signal="loadNext" from="Levels/SimpleVein" to="." method="_on_simple_vein_load_next"]
 [connection signal="loadNext" from="Levels/SimpleVein2" to="." method="_on_simple_vein_load_next"]
+[connection signal="intestineCompleted" from="Levels/intestineVein" to="." method="_on_intestine_vein_intestine_completed"]
+[connection signal="stomachCompleted" from="Levels/stomachVein" to="." method="_on_stomach_vein_stomach_completed"]
 [connection signal="gameOver" from="SoftBody2D" to="." method="_on_soft_body_2d_game_over"]
 [connection signal="hurt" from="SoftBody2D" to="HUD" method="_on_soft_body_2d_hurt"]

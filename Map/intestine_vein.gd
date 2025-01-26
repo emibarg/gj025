@@ -50,7 +50,7 @@ func enableHumo():
 func _on_accelerate_zone_body_entered(body):
 	if body.is_in_group("Player"):
 		startingSpeed = startingSpeed * (1 + acceleration)
-		$SpeedUpZone.global_position.y -= 1080
+		$AccelerateZone.global_position.y -= 1080
 	pass # Replace with function body.
 
 

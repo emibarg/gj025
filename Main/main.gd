@@ -11,6 +11,8 @@ var extraRoad
 var startPos : float
 var levelCount = 1
 var heartEnd : bool = false
+var intestineEnd : bool = false
+var stomachEnd : bool = false
 var startLevel : bool = false
 
 signal gameWon()
@@ -27,6 +29,7 @@ func _ready() -> void:
 	var primerNivel : int = randi_range(0,1) # 0,1,
 	extraRoad = $Levels.get_node("ExtraVein")
 	
+	primerNivel = 1
 	
 	if primerNivel == 0:
 		$Levels/SimpleVein.global_position = Vector2(0,0)
@@ -76,6 +79,15 @@ func _process(delta: float) -> void:
 				$Levels/HeartVein.changeColor()
 				$Levels/HeartVein.enableGodRay()
 				pass
+			
+			if stomachEnd:
+				$Levels/stomachVein.changeColor()
+				$Levels/stomachVein.enableHumo()
+			
+			if intestineEnd:
+				$Levels/intestineVein.changeColor()
+				$Levels/intestineVein.enableHumo()
+			
 			
 			extraRoad.global_position = Vector2(-30000, -1080)
 			extraRoad.restore()
@@ -135,7 +147,6 @@ func _on_bi_vein_load_right(newRightLevel, id):
 	extraRoad.global_position = leftCorner
 	extraRoad.move = true
 	
-	newRightLevel = 2
 	
 	if newRightLevel == 0:
 		$Levels/SimpleVein.global_position = rightCorner
@@ -165,6 +176,26 @@ func _on_bi_vein_load_right(newRightLevel, id):
 		if id == 2:
 			nodeToMove = $Levels/BiVein2
 	
+	if newRightLevel == 3:
+		$Levels/stomachVein.global_position = rightCorner
+		$Levels/stomachVein.move = true
+		stomachEnd = true
+		if id == 1:
+			nodeToMove = $Levels/BiVein
+		if id == 2:
+			nodeToMove = $Levels/BiVein2
+	
+	
+	if newRightLevel == 4:
+		$Levels/intestineVein.global_position = rightCorner
+		$Levels/intestineVein.move = true
+		intestineEnd = true
+		if id == 1:
+			nodeToMove = $Levels/BiVein
+		if id == 2:
+			nodeToMove = $Levels/BiVein2
+	
+	
 	
 	goRight = true
 	startPos = $Levels.global_position.x
@@ -176,9 +207,7 @@ func _on_bi_vein_load_right(newRightLevel, id):
 func _on_simple_vein_load_next(newLevel, id):
 	var corner = Vector2(0,-1220)
 	
-	newLevel = 1
 	
-		
 	if newLevel == 0:
 		if id == 1:
 			$Levels/SimpleVein2.global_position = corner
@@ -198,6 +227,7 @@ func _on_simple_vein_load_next(newLevel, id):
 		if id == 2:
 			nodeToMove = $Levels/SimpleVein2
 		pass
+	
 	if startLevel:
 		goDown = true
 	startPos = nodeToMove.global_position.y
@@ -226,4 +256,30 @@ func _on_heart_vein_heart_completed():
 	$"SoftBody2D/Bone-10".linear_velocity = Vector2.UP * 90000
 	$"SoftBody2D/Bone-12".linear_velocity = Vector2.UP * 90000
 	
+	pass # Replace with function body.
+
+
+func _on_intestine_vein_intestine_completed():
+	gameWon.emit()
+	
+	for level in $Levels.get_children():
+		level.move = false
+	ParallaxBack.get_node("ParallaxBackground").active = false
+	
+	$"SoftBody2D/Bone-11".linear_velocity = Vector2.UP * 90000
+	$"SoftBody2D/Bone-10".linear_velocity = Vector2.UP * 90000
+	$"SoftBody2D/Bone-12".linear_velocity = Vector2.UP * 90000
+	pass # Replace with function body.
+
+
+func _on_stomach_vein_stomach_completed():
+	gameWon.emit()
+	
+	for level in $Levels.get_children():
+		level.move = false
+	ParallaxBack.get_node("ParallaxBackground").active = false
+	
+	$"SoftBody2D/Bone-11".linear_velocity = Vector2.UP * 90000
+	$"SoftBody2D/Bone-10".linear_velocity = Vector2.UP * 90000
+	$"SoftBody2D/Bone-12".linear_velocity = Vector2.UP * 90000
 	pass # Replace with function body.
