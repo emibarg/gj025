@@ -61,7 +61,6 @@ position = Vector2(40, 444)
 stream = ExtResource("9_28epc")
 volume_db = -4.724
 autoplay = true
-stream_paused = true
 
 [connection signal="heartCompleted" from="Levels/HeartVein" to="." method="_on_heart_vein_heart_completed"]
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5emm3upqo2wx"]
+[gd_scene load_steps=9 format=3 uid="uid://c5emm3upqo2wx"]
 
 [ext_resource type="Texture2D" uid="uid://dl13rly6uxrvy" path="res://new folder/PEDOF.png" id="1_7w0t4"]
+[ext_resource type="Script" path="res://new folder/humo.gd" id="1_dmeno"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3q2ut"]
 particles_animation = true
@@ -41,11 +42,16 @@ anim_speed_min = 1.0
 anim_speed_max = 1.0
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(1280, 353)
+script = ExtResource("1_dmeno")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 1
 material = SubResource("CanvasItemMaterial_3q2ut")
+rotation = 2.17542
 amount = 50
 process_material = SubResource("ParticleProcessMaterial_sktu7")
 texture = ExtResource("1_7w0t4")
 lifetime = 3.0
-visibility_rect = Rect2(-100, -100, 4000, 200)
+visibility_rect = Rect2(-100, -100, 7000, 2000)
+local_coords = true

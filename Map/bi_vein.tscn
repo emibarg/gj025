@@ -19,6 +19,7 @@ radius = 89.0505
 
 [node name="BiVein" type="Node2D"]
 script = ExtResource("1_uyn5g")
+gravity = 800
 StopY = 3032
 
 [node name="Bifurcacion" type="Node2D" parent="."]
@@ -118,8 +119,8 @@ rotation = 0.306394
 scale = Vector2(-5.96639, 7.89389)
 
 [node name="Humo" parent="." instance=ExtResource("10_37a0v")]
-position = Vector2(1969, -4656)
-rotation = 2.12377
+visible = false
+position = Vector2(2123, -4445)
 
 [connection signal="body_entered" from="GoLeft" to="." method="_on_go_left_body_entered"]
 [connection signal="body_entered" from="GoRight" to="." method="_on_go_right_body_entered"]

@@ -33,6 +33,7 @@ func _ready() -> void:
 		$GodrayH.visible = true
 	elif rightLevelRoll <= 90:
 		rightLevel = 3
+		$Humo.visible = true
 	else :
 		rightLevel = 4
 	
@@ -69,6 +70,7 @@ func _on_go_right_body_entered(body):
 		loadRight.emit(rightLevel, ID)
 		unload = true
 		$GodrayH.fading = true
+		$Humo.fading = true
 	pass # Replace with function body.
 
 
