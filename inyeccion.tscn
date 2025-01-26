@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://vnyxlnve2a4y"]
+[gd_scene load_steps=7 format=3 uid="uid://c1bmgw8lvgwc8"]
 
 [ext_resource type="Script" path="res://inyeccion.gd" id="1_qaq3x"]
 [ext_resource type="Texture2D" uid="uid://c47g4nwyygkoi" path="res://new folder/INYECCION.png" id="1_x4ptw"]
 [ext_resource type="Texture2D" uid="uid://bgod2cc1uur8b" path="res://new folder/particle.png" id="2_xxnuu"]
+[ext_resource type="AudioStream" uid="uid://cujaui2o4e3pr" path="res://Sound Effects/pour-water-glug-1-184056.mp3" id="4_culf3"]
+[ext_resource type="Script" path="res://pshhhhhh.gd" id="5_fy2vi"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f5t6l"]
 particle_flag_disable_z = true
@@ -28,3 +30,9 @@ process_material = SubResource("ParticleProcessMaterial_f5t6l")
 texture = ExtResource("2_xxnuu")
 visibility_rect = Rect2(-100, -100, 262, 200)
 local_coords = true
+
+[node name="PSHHHHHH" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_culf3")
+volume_db = 10.0
+pitch_scale = 0.7
+script = ExtResource("5_fy2vi")

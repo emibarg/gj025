@@ -4,10 +4,13 @@ var goaway : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	##wait two seconds before and leave the scene
+	$PSHHHHHH.play()
 	await get_tree().create_timer(3).timeout
+	$PSHHHHHH.fadeOut()
 	set("goaway", true)
 	await get_tree().create_timer(1).timeout
 	queue_free()
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

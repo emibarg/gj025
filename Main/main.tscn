@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dbx4nn2rxjcp1" path="res://gameover.tscn" id="10_suv5g"]
 [ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="11_h6koc"]
 [ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="11_mxr6o"]
-[ext_resource type="PackedScene" path="res://inyeccion.tscn" id="13_jumww"]
+[ext_resource type="PackedScene" uid="uid://c1bmgw8lvgwc8" path="res://inyeccion.tscn" id="13_jumww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_78r50"]
 shader = ExtResource("11_h6koc")
