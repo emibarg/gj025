@@ -27,7 +27,7 @@ default_font_size = 65
 Button/styles/hover = SubResource("StyleBoxFlat_clwtk")
 Button/styles/normal = SubResource("StyleBoxFlat_yev1c")
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
