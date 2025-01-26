@@ -8,6 +8,7 @@ var rightLevel : int
 
 var goFast : bool = true
 var unload : bool = false
+var HOTFIX : bool = true
 @export var move : bool = true
 
 signal loadLeft(newLeftLevel : int, id : int)
@@ -70,6 +71,7 @@ func _on_go_right_body_entered(body):
 		unload = true
 		
 		if rightLevel == 2:
+			HOTFIX = false
 			$GodrayH.fading = true
 		if rightLevel == 4:
 			$Humo.fading = true
@@ -87,7 +89,9 @@ func rollNext():
 	leftLevel = randi_range(0,1) # 0,1
 	var rightLevelRoll = randi_range(0,100) # 0,1,2,3,4, (0-30 = 0; 30-70 = 1; 70-80 = 2; 80-90 = 3; 90-100 = 4  )
 	
-	$GodrayH.visible = false
+	if HOTFIX:
+		$GodrayH.visible = false
+	
 	$Humo.visible = false
 	$HumoStomach.visible = false
 	
