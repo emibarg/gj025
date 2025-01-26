@@ -68,6 +68,7 @@ func _process(delta: float) -> void:
 			
 			if heartEnd:
 				$Levels/HeartVein.changeColor()
+				$Levels/HeartVein.enableGodRay()
 				pass
 			
 			extraRoad.global_position = Vector2(-30000, -1080)
@@ -150,6 +151,7 @@ func _on_bi_vein_load_right(newRightLevel, id):
 	if newRightLevel == 2:
 		$Levels/HeartVein.global_position = rightCorner
 		$Levels/HeartVein.move = true
+		
 		heartEnd = true
 		if id == 1:
 			nodeToMove = $Levels/BiVein
@@ -209,5 +211,9 @@ func _on_heart_vein_heart_completed():
 	for level in $Levels.get_children():
 		level.move = false
 	ParallaxBack.get_node("ParallaxBackground").active = false
+	
+	$"SoftBody2D/Bone-11".linear_velocity = Vector2.UP * 90000
+	$"SoftBody2D/Bone-10".linear_velocity = Vector2.UP * 90000
+	$"SoftBody2D/Bone-12".linear_velocity = Vector2.UP * 90000
 	
 	pass # Replace with function body.

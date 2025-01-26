@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c3l5cvrw6g3wx" path="res://Map/extra_vein.tscn" id="5_us0u1"]
 [ext_resource type="PackedScene" uid="uid://cev1e6eh2gh3y" path="res://Map/bi_vein.tscn" id="6_d0mww"]
 [ext_resource type="PackedScene" uid="uid://dqmkwvryh0au6" path="res://UI/hud.tscn" id="7_4o7h1"]
-[ext_resource type="PackedScene" path="res://Map/heart_vein.tscn" id="8_rt8sf"]
+[ext_resource type="PackedScene" uid="uid://legpqfkjbtaf" path="res://Map/heart_vein.tscn" id="8_rt8sf"]
 [ext_resource type="PackedScene" uid="uid://54y3xlmt2ioy" path="res://new folder/ParallaxBG.tscn" id="8_vttmc"]
 [ext_resource type="AudioStream" uid="uid://7lgod5gm7j4r" path="res://Player/dungeon 8bit v2.wav" id="9_28epc"]
 
@@ -17,6 +17,10 @@ ParallaxBack = NodePath("Parallax")
 [node name="HUD" parent="." instance=ExtResource("7_4o7h1")]
 
 [node name="Levels" type="Node2D" parent="."]
+
+[node name="HeartVein" parent="Levels" instance=ExtResource("8_rt8sf")]
+position = Vector2(37840, -256)
+startingSpeed = 600.0
 
 [node name="BiVein" parent="Levels" instance=ExtResource("6_d0mww")]
 position = Vector2(-30000, 1080)
@@ -44,10 +48,6 @@ position = Vector2(-20736, 3456)
 gravity = 600
 ID = 0
 
-[node name="HeartVein" parent="Levels" instance=ExtResource("8_rt8sf")]
-position = Vector2(37840, -256)
-startingSpeed = 600.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(960, 540)
 
@@ -63,12 +63,12 @@ volume_db = -4.724
 autoplay = true
 stream_paused = true
 
+[connection signal="heartCompleted" from="Levels/HeartVein" to="." method="_on_heart_vein_heart_completed"]
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]
 [connection signal="loadRight" from="Levels/BiVein" to="." method="_on_bi_vein_load_right"]
 [connection signal="loadLeft" from="Levels/BiVein2" to="." method="_on_bi_vein_load_left"]
 [connection signal="loadRight" from="Levels/BiVein2" to="." method="_on_bi_vein_load_right"]
 [connection signal="loadNext" from="Levels/SimpleVein" to="." method="_on_simple_vein_load_next"]
 [connection signal="loadNext" from="Levels/SimpleVein2" to="." method="_on_simple_vein_load_next"]
-[connection signal="heartCompleted" from="Levels/HeartVein" to="." method="_on_heart_vein_heart_completed"]
 [connection signal="gameOver" from="SoftBody2D" to="." method="_on_soft_body_2d_game_over"]
 [connection signal="hurt" from="SoftBody2D" to="HUD" method="_on_soft_body_2d_hurt"]
