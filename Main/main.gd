@@ -32,6 +32,8 @@ func _ready() -> void:
 	var primerNivel : int = randi_range(0,1) # 0,1,
 	extraRoad = $Levels.get_node("ExtraVein")
 	
+	$HUD/FadeBlack.show()
+	$HUD/FadeBlack.fadeOut()
 	
 	if primerNivel == 0:
 		$Levels/SimpleVein.global_position = Vector2(0,0)
@@ -51,6 +53,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	
 	
 	if goLeft and not gameOver:
 		$Levels.global_position += Vector2.RIGHT * slideSpeed * delta
@@ -263,6 +267,11 @@ func _on_heart_vein_heart_completed():
 	$"SoftBody2D/Bone-10".linear_velocity = Vector2.UP * 90000
 	$"SoftBody2D/Bone-12".linear_velocity = Vector2.UP * 90000
 	
+	await get_tree().create_timer(0.2).timeout
+	$HUD/FadeBlack.fadeIn()
+	await get_tree().create_timer(0.6).timeout
+	get_tree().change_scene_to_file("res://endings/ded.tscn")
+	
 	pass # Replace with function body.
 
 
@@ -276,6 +285,11 @@ func _on_intestine_vein_intestine_completed():
 	$"SoftBody2D/Bone-11".linear_velocity = Vector2.UP * 90000
 	$"SoftBody2D/Bone-10".linear_velocity = Vector2.UP * 90000
 	$"SoftBody2D/Bone-12".linear_velocity = Vector2.UP * 90000
+	
+	await get_tree().create_timer(0.2).timeout
+	$HUD/FadeBlack.fadeIn()
+	await get_tree().create_timer(0.6).timeout
+	get_tree().change_scene_to_file("res://endings/flatulencius.tscn")
 	pass # Replace with function body.
 
 
@@ -289,4 +303,10 @@ func _on_stomach_vein_stomach_completed():
 	$"SoftBody2D/Bone-11".linear_velocity = Vector2.UP * 90000
 	$"SoftBody2D/Bone-10".linear_velocity = Vector2.UP * 90000
 	$"SoftBody2D/Bone-12".linear_velocity = Vector2.UP * 90000
+	
+	await get_tree().create_timer(0.2).timeout
+	$HUD/FadeBlack.fadeIn()
+	await get_tree().create_timer(0.6).timeout
+	get_tree().change_scene_to_file("res://endings/eructus.tscn")
+	
 	pass # Replace with function body.

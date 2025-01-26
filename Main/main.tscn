@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=18 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
+[ext_resource type="Script" path="res://Main/fade_black.gd" id="2_owt83"]
 [ext_resource type="PackedScene" uid="uid://dam3nc2f7w8j" path="res://Player/Player.tscn" id="2_q8phl"]
 [ext_resource type="PackedScene" uid="uid://c3l5cvrw6g3wx" path="res://Map/extra_vein.tscn" id="5_us0u1"]
 [ext_resource type="PackedScene" uid="uid://cev1e6eh2gh3y" path="res://Map/bi_vein.tscn" id="6_d0mww"]
@@ -31,6 +32,17 @@ script = ExtResource("1_xug03")
 ParallaxBack = NodePath("Parallax")
 
 [node name="HUD" parent="." instance=ExtResource("7_4o7h1")]
+
+[node name="FadeBlack" type="ColorRect" parent="HUD"]
+visible = false
+z_index = 12
+offset_left = -464.0
+offset_top = -159.0
+offset_right = 2415.0
+offset_bottom = 1392.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("2_owt83")
 
 [node name="Levels" type="Node2D" parent="."]
 
