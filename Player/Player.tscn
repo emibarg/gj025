@@ -64,7 +64,7 @@ func die():
 	pass
 
 func handleHealth():
-	if hitPoints == 0 and alive:
+	if hitPoints <= 0 and alive:
 		die()
 	if $\"Bone-11\".global_position.x < 200 or  $\"Bone-11\".global_position.x > 1800 and alive:
 		die() 
@@ -316,7 +316,7 @@ modification_stack = SubResource("SkeletonModificationStack2D_5jetw")
 position = Vector2(7.5, 22.5)
 rotation = 1.03038
 scale = Vector2(1, 1.05469)
-skew = -0.0369951
+skew = -0.0369952
 rest = Transform2D(0.514496, 0.857493, -0.857493, 0.514496, 7.5, 22.5)
 auto_calculate_length_and_angle = false
 length = 30.0
@@ -581,7 +581,7 @@ metadata/_local_pose_override_enabled_ = true
 position = Vector2(116.5, 7.5)
 rotation = 2.43765
 scale = Vector2(1, 1.05181)
-skew = 0.0402992
+skew = 0.0402991
 rest = Transform2D(-0.762294, 0.647231, -0.647231, -0.762294, 116.5, 7.5)
 auto_calculate_length_and_angle = false
 length = 30.0
