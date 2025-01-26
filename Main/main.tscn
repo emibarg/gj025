@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=9 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c3l5cvrw6g3wx" path="res://Map/extra_vein.tscn" id="5_us0u1"]
 [ext_resource type="PackedScene" uid="uid://cev1e6eh2gh3y" path="res://Map/bi_vein.tscn" id="6_d0mww"]
 [ext_resource type="PackedScene" uid="uid://dqmkwvryh0au6" path="res://UI/hud.tscn" id="7_4o7h1"]
-[ext_resource type="PackedScene" uid="uid://legpqfkjbtaf" path="res://Map/heart_vein.tscn" id="8_rt8sf"]
+[ext_resource type="PackedScene" path="res://Map/heart_vein.tscn" id="8_rt8sf"]
+[ext_resource type="PackedScene" uid="uid://54y3xlmt2ioy" path="res://new folder/ParallaxBG.tscn" id="8_vttmc"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("ParallaxBack")]
 script = ExtResource("1_xug03")
+ParallaxBack = NodePath("Parallax")
 
 [node name="HUD" parent="." instance=ExtResource("7_4o7h1")]
 
@@ -50,6 +52,9 @@ offset = Vector2(960, 540)
 
 [node name="SoftBody2D" parent="." instance=ExtResource("2_q8phl")]
 position = Vector2(890, 905)
+
+[node name="Parallax" parent="." instance=ExtResource("8_vttmc")]
+position = Vector2(40, 444)
 
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]
 [connection signal="loadRight" from="Levels/BiVein" to="." method="_on_bi_vein_load_right"]
