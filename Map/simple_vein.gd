@@ -59,3 +59,16 @@ func _on_load_next_body_entered(body):
 		loadNext.emit(nextLevel, ID)
 		pass
 	pass # Replace with function body.
+
+func rollNext():
+	
+	var nextRoll = randf_range(0,50)
+	
+	if  nextRoll <= 20:
+		nextLevel = 0
+	elif  nextRoll <= 50:
+		nextLevel = 1
+	
+	
+	print("Single Vein: ID = ", ID, " LEVEL = ", nextLevel)
+	pass

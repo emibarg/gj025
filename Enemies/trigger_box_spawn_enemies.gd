@@ -24,7 +24,6 @@ func _process(delta):
 func spawn():
 	
 	var numberOfEnemies : int = randi_range(minEnemies, maxEnemies)
-	print(numberOfEnemies)
 	
 	
 	for i in range(numberOfEnemies):

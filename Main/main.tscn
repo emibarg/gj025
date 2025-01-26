@@ -99,6 +99,7 @@ texture = ExtResource("11_mxr6o")
 [node name="Node2D" parent="." instance=ExtResource("13_jumww")]
 position = Vector2(-192, 99)
 
+[connection signal="start" from="." to="SoftBody2D" method="_on_main_start"]
 [connection signal="heartCompleted" from="Levels/HeartVein" to="." method="_on_heart_vein_heart_completed"]
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]
 [connection signal="loadRight" from="Levels/BiVein" to="." method="_on_bi_vein_load_right"]

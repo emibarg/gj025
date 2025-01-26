@@ -15,7 +15,10 @@ var intestineEnd : bool = false
 var stomachEnd : bool = false
 var startLevel : bool = false
 
+var gameOver : bool = false
+
 signal gameWon()
+signal start()
 
 # 0 es una vein
 # 1 es bivein
@@ -29,7 +32,6 @@ func _ready() -> void:
 	var primerNivel : int = randi_range(0,1) # 0,1,
 	extraRoad = $Levels.get_node("ExtraVein")
 	
-	primerNivel = 1
 	
 	if primerNivel == 0:
 		$Levels/SimpleVein.global_position = Vector2(0,0)
@@ -41,6 +43,7 @@ func _ready() -> void:
 		$Levels/BiVein.move = true
 	
 	set("startLevel", true)
+	start.emit()
 	
 	pass
 
@@ -49,7 +52,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	if goLeft:
+	if goLeft and not gameOver:
 		$Levels.global_position += Vector2.RIGHT * slideSpeed * delta
 		extraRoad.dissolve()
 		extraRoad.move = true
@@ -58,6 +61,7 @@ func _process(delta: float) -> void:
 		if $Levels.global_position.x >= startPos + 593:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
+			nodeToMove.rollNext()
 			
 			extraRoad.global_position = Vector2(-30000, -1080)
 			extraRoad.restore()
@@ -66,7 +70,7 @@ func _process(delta: float) -> void:
 			goLeft = false
 		pass
 	
-	if goRight:
+	if goRight and not gameOver:
 		$Levels.global_position += Vector2.LEFT * slideSpeed * delta
 		extraRoad.dissolve()
 		extraRoad.move = true
@@ -74,6 +78,7 @@ func _process(delta: float) -> void:
 		if $Levels.global_position.x <= startPos - 780:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
+			nodeToMove.rollNext()
 			
 			if heartEnd:
 				$Levels/HeartVein.changeColor()
@@ -96,7 +101,7 @@ func _process(delta: float) -> void:
 			goRight = false
 	
 	
-	if goDown and nodeToMove.global_position.y >= startPos + 1400:
+	if goDown and nodeToMove.global_position.y >= startPos + 1400 and not gameOver:
 		nodeToMove.global_position = Vector2(-30000, -1000)
 		nodeToMove.move = false
 		goDown = false
@@ -240,6 +245,7 @@ func _on_soft_body_2d_game_over():
 		level.move = false
 	
 	ParallaxBack.get_node("ParallaxBackground").active = false
+	gameOver = true
 	$GameOver.show()
 	
 	pass # Replace with function body.

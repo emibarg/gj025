@@ -82,3 +82,29 @@ func _on_kill_zone_body_entered(body):
 	if body.is_in_group("Player"):
 		body.get_parent().die()
 	pass # Replace with function body.
+
+func rollNext():
+	leftLevel = randi_range(0,1) # 0,1
+	var rightLevelRoll = randi_range(0,100) # 0,1,2,3,4, (0-30 = 0; 30-70 = 1; 70-80 = 2; 80-90 = 3; 90-100 = 4  )
+	
+	$GodrayH.visible = false
+	$Humo.visible = false
+	$HumoStomach.visible = false
+	
+	if rightLevelRoll <= 30:
+		rightLevel = 0
+	elif rightLevelRoll <= 70:
+		rightLevel = 1
+	elif rightLevelRoll <= 80:
+		rightLevel = 2
+		$GodrayH.visible = true
+	elif rightLevelRoll <= 90:
+		rightLevel = 4
+		$Humo.visible = true
+	else :
+		rightLevel = 3
+		$HumoStomach.visible = true
+	
+	print("BiVein: ID = ", ID,"L LEVEL = ", leftLevel, " R LEVEL = ", rightLevel)
+	
+	pass
