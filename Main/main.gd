@@ -22,7 +22,7 @@ signal gameWon()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	$GameOver.hide()
 	var primerNivel : int = randi_range(0,1) # 0,1,
 	extraRoad = $Levels.get_node("ExtraVein")
 	
@@ -202,6 +202,8 @@ func _on_soft_body_2d_game_over():
 		level.move = false
 	
 	ParallaxBack.get_node("ParallaxBackground").active = false
+	$GameOver.show()
+	
 	pass # Replace with function body.
 
 
