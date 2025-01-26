@@ -1,14 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4nxbyev1yroy"]
+[gd_scene load_steps=24 format=3 uid="uid://c4nxbyev1yroy"]
 
-[ext_resource type="Texture2D" uid="uid://bc1s0ycnjiqvq" path="res://Menu/bubblelogo.png" id="1_ayn2d"]
 [ext_resource type="Shader" path="res://Menu/Button.gdshader" id="2_jsbfh"]
 [ext_resource type="FontFile" uid="uid://c245ec3di04l3" path="res://Menu/upheavtt.ttf" id="3_5xww4"]
 [ext_resource type="Script" path="res://Menu/button.gd" id="3_p7krk"]
 [ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="4_5sbvy"]
 [ext_resource type="Texture2D" uid="uid://c11o10dhi81us" path="res://new folder/fondorojo 1920x4320.png" id="5_dn6nt"]
 [ext_resource type="Script" path="res://Menu/button_3.gd" id="5_f2wwo"]
+[ext_resource type="FontFile" uid="uid://cks5xl1283oth" path="res://UI/Bubble3D.ttf" id="5_pvwk3"]
+[ext_resource type="Texture2D" uid="uid://duipwee64qtco" path="res://Menu/bubble holder split red 1.png" id="6_eiyyl"]
 [ext_resource type="Texture2D" uid="uid://b71nj4kj3wt26" path="res://new folder/PNG image-483E-98C5-A4-0.png" id="6_m8rct"]
 [ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="7_d5cx3"]
+[ext_resource type="Texture2D" uid="uid://cfar5ypmchcoe" path="res://Menu/bubble holder spilt blu 1.png" id="7_k6cfu"]
+[ext_resource type="Texture2D" uid="uid://2engyj4vxj1h" path="res://Menu/bubble holder split 2 blue.png" id="8_ymsci"]
+[ext_resource type="Texture2D" uid="uid://c7c3d0c0iv64p" path="res://Menu/bubble holder split red 2.png" id="9_ordj0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qk5aw"]
 shader = ExtResource("2_jsbfh")
@@ -117,20 +121,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Bubblelogo" type="Sprite2D" parent="Control"]
-position = Vector2(1052, 204)
-texture = ExtResource("1_ayn2d")
-
 [node name="GridContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 797.0
-offset_top = -138.0
-offset_right = -726.0
-offset_bottom = 29.0
+offset_left = 776.0
+offset_top = -69.0
+offset_right = -747.0
+offset_bottom = 173.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -174,6 +174,51 @@ text = "       quit⠀⠀⠀⠀
 "
 script = ExtResource("5_f2wwo")
 
+[node name="Label" type="Label" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 235.0
+offset_top = 87.0
+offset_right = 1450.0
+offset_bottom = 227.0
+theme_override_fonts/font = ExtResource("5_pvwk3")
+theme_override_font_sizes/font_size = 140
+text = "BUBBLE"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Control"]
+z_index = 2
+layout_mode = 0
+offset_left = 459.0
+offset_top = 182.0
+offset_right = 1674.0
+offset_bottom = 326.0
+theme_override_fonts/font = ExtResource("3_5xww4")
+theme_override_font_sizes/font_size = 160
+text = "TROUBLE"
+horizontal_alignment = 1
+
+[node name="BubbleHolderSpiltBlu1" type="Sprite2D" parent="Control"]
+z_index = 1
+position = Vector2(845, 140)
+scale = Vector2(4, 2)
+texture = ExtResource("6_eiyyl")
+
+[node name="BubbleHolderSpiltBlu2" type="Sprite2D" parent="Control"]
+position = Vector2(821, 149)
+scale = Vector2(4, 2)
+texture = ExtResource("7_k6cfu")
+
+[node name="BubbleHolderSplit2Blue" type="Sprite2D" parent="Control"]
+position = Vector2(1047, 276)
+scale = Vector2(3, 1.5)
+texture = ExtResource("8_ymsci")
+
+[node name="BubbleHolderSplit2Blue2" type="Sprite2D" parent="Control"]
+position = Vector2(1074, 266)
+scale = Vector2(3, 1.5)
+texture = ExtResource("9_ordj0")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(1080, 555)
@@ -188,7 +233,7 @@ texture = ExtResource("6_m8rct")
 
 [node name="PngImage-483e-98c5-a4-1" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(1838, 543)
+position = Vector2(1680, 543)
 scale = Vector2(0.25, 0.284028)
 texture = ExtResource("6_m8rct")
 flip_v = true
