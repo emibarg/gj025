@@ -56,14 +56,14 @@ shader_parameter/Position_Min = 0.25
 shader_parameter/Position_Max = 0.5
 shader_parameter/Alpha = 1.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rijwg"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1ojc"]
 bg_color = Color(0.144091, 2.11324e-07, 6.01634e-09, 0.964706)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhm2j"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vp7qh"]
 bg_color = Color(0.6, 0, 0, 0.964706)
 border_width_bottom = 11
 border_color = Color(0.378232, 6.04643e-07, 4.81308e-08, 0.964706)
@@ -74,8 +74,8 @@ corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_1i3qa"]
 default_font_size = 50
-Button/styles/hover = SubResource("StyleBoxFlat_rijwg")
-Button/styles/normal = SubResource("StyleBoxFlat_mhm2j")
+Button/styles/hover = SubResource("StyleBoxFlat_l1ojc")
+Button/styles/normal = SubResource("StyleBoxFlat_vp7qh")
 
 [sub_resource type="GDScript" id="GDScript_xgeei"]
 script/source = "extends Button
