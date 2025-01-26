@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bc451m1gikq5a"]
+[gd_scene load_steps=10 format=3 uid="uid://bc451m1gikq5a"]
 
 [ext_resource type="Script" path="res://Main/main.gd" id="1_xug03"]
 [ext_resource type="PackedScene" uid="uid://c7n0iro3w2plh" path="res://Map/simple_vein.tscn" id="2_1ei74"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dqmkwvryh0au6" path="res://UI/hud.tscn" id="7_4o7h1"]
 [ext_resource type="PackedScene" uid="uid://legpqfkjbtaf" path="res://Map/heart_vein.tscn" id="8_rt8sf"]
 [ext_resource type="PackedScene" uid="uid://54y3xlmt2ioy" path="res://new folder/ParallaxBG.tscn" id="8_vttmc"]
+[ext_resource type="AudioStream" uid="uid://7lgod5gm7j4r" path="res://Player/dungeon 8bit v2.wav" id="9_28epc"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("ParallaxBack")]
 script = ExtResource("1_xug03")
@@ -55,6 +56,12 @@ position = Vector2(890, 905)
 
 [node name="Parallax" parent="." instance=ExtResource("8_vttmc")]
 position = Vector2(40, 444)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_28epc")
+volume_db = -4.724
+autoplay = true
+stream_paused = true
 
 [connection signal="heartCompleted" from="Levels/HeartVein" to="." method="_on_heart_vein_heart_completed"]
 [connection signal="loadLeft" from="Levels/BiVein" to="." method="_on_bi_vein_load_left"]

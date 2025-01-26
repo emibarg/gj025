@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbx4nn2rxjcp1"]
+[gd_scene load_steps=6 format=3 uid="uid://dbx4nn2rxjcp1"]
 
 [ext_resource type="FontFile" uid="uid://c245ec3di04l3" path="res://Menu/upheavtt.ttf" id="1_16wyx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rijwg"]
+bg_color = Color(0.144091, 2.11324e-07, 6.01634e-09, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mhm2j"]
+bg_color = Color(0.6, 0, 0, 0.964706)
+border_width_bottom = 11
+border_color = Color(0.378232, 6.04643e-07, 4.81308e-08, 0.964706)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_ctj1y"]
+default_font_size = 50
+Button/styles/hover = SubResource("StyleBoxFlat_rijwg")
+Button/styles/normal = SubResource("StyleBoxFlat_mhm2j")
+
+[sub_resource type="GDScript" id="GDScript_84aqw"]
+script/source = "extends Button
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://Menu/howto.tscn\")
+	pass # Replace with function body.
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,3 +59,18 @@ offset_bottom = 447.0
 theme_override_fonts/font = ExtResource("1_16wyx")
 theme_override_font_sizes/font_size = 300
 text = "GAME OVER"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 767.0
+offset_top = 579.0
+offset_right = 1145.0
+offset_bottom = 657.0
+size_flags_horizontal = 6
+size_flags_vertical = 3
+theme = SubResource("Theme_ctj1y")
+theme_override_fonts/font = ExtResource("1_16wyx")
+text = "  How to play⠀
+"
+script = SubResource("GDScript_84aqw")
+
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]
