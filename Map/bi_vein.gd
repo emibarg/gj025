@@ -18,8 +18,11 @@ func _ready() -> void:
 	leftLevel = randi_range(0,1) # 0,1
 	var rightLevelRoll = randi_range(0,100) # 0,1,2,3,4, (0-30 = 0; 30-70 = 1; 70-80 = 2; 80-90 = 3; 90-100 = 4  )
 	move = false
+	move = true
 	goFast = false
 	unload = false
+	
+	rightLevelRoll = 80
 	
 	if rightLevelRoll <= 30:
 		rightLevel = 0
@@ -27,6 +30,7 @@ func _ready() -> void:
 		rightLevel = 1
 	elif rightLevelRoll <= 80:
 		rightLevel = 2
+		$GodrayH.visible = true
 	elif rightLevelRoll <= 90:
 		rightLevel = 3
 	else :
@@ -64,6 +68,7 @@ func _on_go_right_body_entered(body):
 	if body.is_in_group("Player"):
 		loadRight.emit(rightLevel, ID)
 		unload = true
+		$GodrayH.fading = true
 	pass # Replace with function body.
 
 

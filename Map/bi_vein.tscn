@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cev1e6eh2gh3y"]
+[gd_scene load_steps=12 format=3 uid="uid://cev1e6eh2gh3y"]
 
 [ext_resource type="Script" path="res://Map/bi_vein.gd" id="1_uyn5g"]
+[ext_resource type="PackedScene" uid="uid://p0svuotbhcey" path="res://godray_h.tscn" id="2_c0gp8"]
 [ext_resource type="Texture2D" uid="uid://br7gndbtfla05" path="res://Map/correcciones/bifurcación/bifurcacion relleno.png" id="2_rli6x"]
 [ext_resource type="Texture2D" uid="uid://c8l8j0a336n2b" path="res://Map/correcciones/bifurcación/bifuración textura.png" id="3_yaeq4"]
 [ext_resource type="Texture2D" uid="uid://decukx4isp412" path="res://Map/correcciones/bifurcación/bifuración contorno.png" id="4_o6s2w"]
@@ -108,6 +109,12 @@ position = Vector2(999, -3456)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(3, -13)
 shape = SubResource("CircleShape2D_1os3g")
+
+[node name="GodrayH" parent="." instance=ExtResource("2_c0gp8")]
+visible = false
+position = Vector2(2313, -4465)
+rotation = 0.306394
+scale = Vector2(-5.96639, 7.89389)
 
 [connection signal="body_entered" from="GoLeft" to="." method="_on_go_left_body_entered"]
 [connection signal="body_entered" from="GoRight" to="." method="_on_go_right_body_entered"]

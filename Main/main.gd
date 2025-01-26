@@ -9,6 +9,7 @@ var nodeToMove
 var extraRoad
 var startPos : float
 var levelCount = 1
+var heartEnd : bool = false
 
 signal gameWon()
 
@@ -63,6 +64,10 @@ func _process(delta: float) -> void:
 		if $Levels.global_position.x <= startPos - 780:
 			nodeToMove.global_position = Vector2(-30000, -1080)
 			nodeToMove.move = false
+			
+			if heartEnd:
+				$Levels/HeartVein.changeColor()
+				pass
 			
 			extraRoad.global_position = Vector2(-30000, -1080)
 			extraRoad.restore()
@@ -144,6 +149,7 @@ func _on_bi_vein_load_right(newRightLevel, id):
 	if newRightLevel == 2:
 		$Levels/HeartVein.global_position = rightCorner
 		$Levels/HeartVein.move = true
+		heartEnd = true
 		if id == 1:
 			nodeToMove = $Levels/BiVein
 		if id == 2:
