@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cojlku33be56v"]
+[gd_scene load_steps=10 format=3 uid="uid://cojlku33be56v"]
 
 [ext_resource type="Script" path="res://Menu/buttonBACK.gd" id="1_an5gk"]
+[ext_resource type="Texture2D" uid="uid://c11o10dhi81us" path="res://new folder/fondorojo 1920x4320.png" id="2_dn31m"]
+[ext_resource type="Texture2D" uid="uid://b71nj4kj3wt26" path="res://new folder/PNG image-483E-98C5-A4-0.png" id="3_d7rcm"]
+[ext_resource type="Shader" path="res://new folder/Esnow.gdshader" id="4_u3by6"]
+[ext_resource type="Texture2D" uid="uid://b37l5whueff1k" path="res://new folder/Vacio.png" id="5_yiyxq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clwtk"]
 bg_color = Color(0.24893, 3.89558e-07, 2.40654e-08, 0.964706)
@@ -23,6 +27,16 @@ default_font_size = 65
 Button/styles/hover = SubResource("StyleBoxFlat_clwtk")
 Button/styles/normal = SubResource("StyleBoxFlat_yev1c")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iogxj"]
+shader = ExtResource("4_u3by6")
+shader_parameter/spread = 0.5
+shader_parameter/size = 4.0
+shader_parameter/snow_color = Color(1, 0, 0, 0.2)
+shader_parameter/snow_transparency = 1.0
+shader_parameter/speed = 0.1
+shader_parameter/wind = 0.0
+shader_parameter/num_of_layers = 40
+
 [node name="Howto" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
@@ -40,5 +54,25 @@ offset_bottom = 193.0
 theme = SubResource("Theme_2exyf")
 text = "<--"
 script = ExtResource("1_an5gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1080, 555)
+scale = Vector2(1.125, 0.28588)
+texture = ExtResource("2_dn31m")
+
+[node name="PngImage-483e-98c5-a4-1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1838, 543)
+scale = Vector2(0.25, 0.284028)
+texture = ExtResource("3_d7rcm")
+flip_v = true
+
+[node name="Vacio" type="Sprite2D" parent="."]
+z_index = 2
+material = SubResource("ShaderMaterial_iogxj")
+position = Vector2(1080.5, 538.5)
+scale = Vector2(11.5134, 5.94196)
+texture = ExtResource("5_yiyxq")
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

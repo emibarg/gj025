@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var slideSpeed : int = 200
+@export var ParallaxBack : Node2D
 
 var goLeft : bool = false
 var goRight : bool = false
@@ -198,6 +199,7 @@ func _on_soft_body_2d_game_over():
 	for level in $Levels.get_children():
 		level.move = false
 	
+	ParallaxBack.get_node("ParallaxBackground").active = false
 	pass # Replace with function body.
 
 
@@ -206,5 +208,6 @@ func _on_heart_vein_heart_completed():
 	
 	for level in $Levels.get_children():
 		level.move = false
+	ParallaxBack.get_node("ParallaxBackground").active = false
 	
 	pass # Replace with function body.
